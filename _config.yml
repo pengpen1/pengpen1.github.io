@@ -103,6 +103,6 @@ theme: hexo-theme-butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/pengpen1/pengpen1.github.io
+  repo: git@github.com:pengpen1/pengpen1.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
