@@ -689,6 +689,13 @@
   dependencies:
     "function-bind" "^1.1.1"
 
+"hexo-butterfly-artitalk@^1.0.4":
+  "integrity" "sha512-/tdSPT3jF6X+ut+WX5teC1iX6MsnWCWJAo/rQTP11wKy7x56X5u34e3RFxQk14dFp2C8AQlaNj0CJHRQo9WQ/w=="
+  "resolved" "https://registry.npmjs.org/hexo-butterfly-artitalk/-/hexo-butterfly-artitalk-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "pug" "^3.0.2"
+
 "hexo-cli@^4.3.0":
   "integrity" "sha512-nYe7yJhXT7MwlDEpIAjneMfz0wnWTdIhRv+cVW2OPTw8JtG2X+8Y/sYhPDvQz/ZqjFRZ4qgiKFXN5orFJ/u1vg=="
   "resolved" "https://registry.npmjs.org/hexo-cli/-/hexo-cli-4.3.1.tgz"
