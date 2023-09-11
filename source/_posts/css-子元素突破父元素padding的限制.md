@@ -22,7 +22,7 @@ top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 
 ## 解决方案
 
-### 1.绝对定位
+### 绝对定位
 
 方案1是用绝对定位，让子元素脱离文档流。缺点就是下面已有的布局会被打乱。（header就是我们要突破padding的目标元素）
 
@@ -55,7 +55,7 @@ top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 
 ![](https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20230908174514.png)
 
-### 2.解决方案2
+### 解决方案2
 
 第二个方案是利用margin-left配合calc函数实现，利用margin-left突破左边padding限制，利用calc计算出父元素宽度+2倍padding值。
 

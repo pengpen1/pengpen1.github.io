@@ -18,13 +18,13 @@ jsdelivr是免费、快速且可靠的开源CDN（Content Delivery Network，即
 
 ## 步骤
 
-### 1.创建仓库
+### 创建仓库
 
 在gitHub上创建一个公共仓库，用于存放图片。
 
 ![](https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20230907202830.png)
 
-### 2.获取访问token
+### 获取访问token
 
 在Settings > Developer settings >Personal access tokens>Tokens中创建一个访问token。用途随意，过期时间看着办，第一个控制仓库的权限给它选上，其他默认皆可。注意这里创建完毕后要立马复制token。
 
@@ -32,13 +32,13 @@ jsdelivr是免费、快速且可靠的开源CDN（Content Delivery Network，即
 
 ![](https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20230907203346.png)
 
-### 3.下载PicGo
+### 下载PicGo
 
 [picGo](https://molunerfinn.com/PicGo/)，widows选-x64.exe结尾的，ios选-64.dmg结尾的。
 
 ![](https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20230907204038.png)
 
-### 4.设置GitHUb图床
+### 设置GitHUb图床
 
 打开PicGo，在图床设置中选择GitHub，更具提示填写相应配置。在设定自定义域名这，我们需要把jsdelivr使用上：
 
