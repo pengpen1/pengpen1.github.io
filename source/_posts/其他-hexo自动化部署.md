@@ -4,6 +4,7 @@ date: 2023-08-29 16:20:44
 tags: 自动化部署
 categories: 其他
 cover: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
+top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---
 **概要：**在这篇记录中，我们将探讨[Hexo框架](https://github.com/hexojs/hexo)、GitHub Pages以及如何使用GitHub Actions实现自动化部署的原理与流程。
 

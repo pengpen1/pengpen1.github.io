@@ -1,9 +1,10 @@
 ---
-title: 其他-PicGo+gitHub+jsdelivr实现加速图床
+title: PicGo+gitHub+jsdelivr实现加速图床
 date: 2023-09-01 10:20:11
 tags: 图床
 categories: 其他
-cover: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
+cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20230908174847.png
+top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---
 **概要：**在这篇记录中，我们将探讨如何利用PicGo+gitHub+jsdelivr实现加速图床。
 
