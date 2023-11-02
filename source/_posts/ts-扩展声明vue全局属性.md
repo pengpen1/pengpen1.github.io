@@ -3,7 +3,7 @@ title: 扩展声明vue全局属性
 date: 2023-09-6 14:40:00
 tags: ts
 categories: ts
-cover: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
+cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20230914134351.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---
 **概要：**我们在使用vue3开发项目时，会发现很多地方都会用到格式化utc时间，所以我想加个全局属性方便自己使用，但是ts类型检测不通过，而本篇文章就是探讨这个问题的实现方案。
