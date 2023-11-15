@@ -82,20 +82,152 @@
     <!-- <script src="/js/public/cache.js" type="module"></script> -->
     <!-- <script src="/js/view/toolbox/string/index.js" type="module"></script> -->
     <script type="module">
-      import cache from "/js/public/cache.js";
-      import {
-        toUpperCase,
-        capitalizeWords,
-        toConvertHump,
-        toLowerCase,
-        toUnderline,
-        isUnderScored,
-        isHexadecimal,
-        isRGB,
-        hexToRgb,
-        rgbToHex,
-      } from "/js/public/utils.js";
-      console.log(cache, toUpperCase, capitalizeWords);
+      const STORAGE_TYPE = {
+        LOCAL_STORAGE: "localStorage",
+        SESSION_STORAGE: "sessionStorage",
+        COOKIES: "cookies",
+      };
+      class Cache {
+        constructor(type) {
+          this.type = type;
+        }
+        setItem(keyName, value, type) {
+          switch (this.setType(type)) {
+            case STORAGE_TYPE.LOCAL_STORAGE:
+              localStorage.setItem(keyName, value);
+              break;
+            case STORAGE_TYPE.SESSION_STORAGE:
+              sessionStorage.setItem(keyName, value);
+              break;
+            case STORAGE_TYPE.COOKIES:
+              // Implement cookie storage here
+              break;
+            default:
+              sessionStorage.setItem(keyName, value);
+              break;
+          }
+        }
+        getItem(keyName, type) {
+          switch (this.setType(type)) {
+            case STORAGE_TYPE.LOCAL_STORAGE:
+              return localStorage.getItem(keyName);
+            case STORAGE_TYPE.SESSION_STORAGE:
+              return sessionStorage.getItem(keyName);
+            case STORAGE_TYPE.COOKIES:
+            default:
+              return sessionStorage.getItem(keyName);
+          }
+        }
+        removeItem(keyName, type) {
+          switch (this.setType(type)) {
+            case STORAGE_TYPE.LOCAL_STORAGE:
+              localStorage.removeItem(keyName);
+              break;
+            case STORAGE_TYPE.SESSION_STORAGE:
+              sessionStorage.removeItem(keyName);
+              break;
+            case STORAGE_TYPE.COOKIES:
+              // Implement removal of cookie here
+              break;
+            default:
+              sessionStorage.removeItem(keyName);
+              break;
+          }
+        }
+        clear(type) {
+          switch (this.setType(type)) {
+            case STORAGE_TYPE.LOCAL_STORAGE:
+              localStorage.clear();
+              break;
+            case STORAGE_TYPE.SESSION_STORAGE:
+              sessionStorage.clear();
+              break;
+            case STORAGE_TYPE.COOKIES:
+              // Implement clearing cookies here
+              break;
+            default:
+              sessionStorage.clear();
+              break;
+          }
+        }
+        setType(type) {
+          if (!type) {
+            return this.type;
+          } else {
+            return type;
+          }
+        }
+        static instance = null;
+        static getInstance(type) {
+          if (!this.instance) {
+            this.instance = new Cache(type);
+          }
+          return this.instance;
+        }
+      }
+      const cache = Cache.getInstance(STORAGE_TYPE.LOCAL_STORAGE);
+      // 转换字符串用到的工具函数
+      // 大写
+      const toUpperCase = (str) => {
+        return str.replace(/([a-z]+)/g, function (match, p1) {
+          return p1.toUpperCase();
+        });
+      };
+      // 小写
+      const toLowerCase = (str) => {
+        return str.replace(/([A-Z]+)/g, function (match, p1) {
+          return p1.toLowerCase();
+        });
+      };
+      // 首字母大写
+      const capitalizeWords = (text, delimiter = " ") => {
+        return text
+          .split(delimiter)
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(delimiter);
+      };
+      // 加分割符，默认下划线
+      const toUnderline = (text, separator = " ", delimiter = "_") => {
+        return text
+          .split(separator)
+          .map((word) => word.toLowerCase())
+          .join(delimiter);
+      };
+      // 是否由下划线拼接
+      const isUnderScored = (str) => {
+        return /^([a-zA-Z]+_)*[a-zA-Z]+$/.test(str);
+      };
+      // 转驼峰
+      const camelize = (str) => {
+        // (?:)非捕获组，^\w匹配开头的单个字母、[A-Z]单个大写字母、\b\w一个单词的开头、\s+个或多个连续的空格或制表符
+        return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
+          // (?:) 表示非捕获组，即在正则表达式的匹配过程中不用作为捕获组返回，也就是没有p1,p2
+          // 当前匹配的字符串是 " "，则直接返回一个空字符串
+          if (+match === 0) return "";
+          // index是表示当前匹配子字符串在原字符串中的起始位置
+          return index == 0 ? match.toLowerCase() : match.toUpperCase();
+        });
+      };
+
+      // 转驼峰
+      const toCamelCase = (str) => {
+        const result = camelize(str);
+        return result.charAt(0).toLowerCase() + result.slice(1);
+      };
+      // 不是驼峰转驼峰，是驼峰转成空格分隔
+      const toConvertHump = (text) => {
+        const isCamelCase = /^[a-z][A-Za-z0-9]*$/.test(text);
+        if (isCamelCase) {
+          // 是驼峰转换成空格拼接
+          return text.replace(/[A-Z]/g, (match) => ` ${match.toLowerCase()}`);
+        } else {
+          // 不是驼峰转换成驼峰
+          // return text.replace(/(?:^\w|[A-Z])/g, (match, index) =>
+          //   index === 0 ? match.toLowerCase() : ` ${match.toLowerCase()}`
+          // );
+          return toCamelCase(text);
+        }
+      };
       // 配置提示信息
       const PROMPT_MESSAGE = [
         {
