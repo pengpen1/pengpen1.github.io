@@ -216,4 +216,5 @@ wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh && bash menu.sh
 ### **参考链接**
 
 - [顾佳凯的网络日志](https://blog.gujiakai.top/2023/10/chatgpt-android-error-disallowed-isp-solution)
-- [warp](https://inurl.top/archives/datizi/)
+- [warp](https://gitlab.com/fscarmen/warp)
+
