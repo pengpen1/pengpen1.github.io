@@ -61,7 +61,7 @@ Port 443
 
 ![](https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240119165349.png)
 
-在英文状态下输入`:qw `推出vim编辑。简单来说就是配置了邮箱地址，私钥文件的路径，端口号。
+在英文状态下输入`:wq `推出vim编辑。简单来说就是配置了邮箱地址，私钥文件的路径，端口号。
 
 然后在用`ssh -T git@github.com`试试吧。
 
