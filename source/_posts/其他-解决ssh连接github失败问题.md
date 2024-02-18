@@ -75,6 +75,8 @@ Port 443
 ipconfig /flushdns
 ```
 
+清除了DNS解析还不行的话，我们有用clash的小伙伴，可以打开TUN模式，因为git 会走自己的代理配置。
+
 还不行，那何必执着于ssh，换https连接吧：
 
 ```shell
