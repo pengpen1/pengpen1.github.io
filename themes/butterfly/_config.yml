@@ -378,7 +378,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   # Preload the search data when the page loads.
   preload: false
   # Show top n results per article, show all results by setting to -1

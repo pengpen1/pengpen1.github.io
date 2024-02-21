@@ -106,3 +106,9 @@ deploy:
   repo: git@github.com:pengpen1/pengpen1.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
