@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@adobe/css-tools@^4.0.1":
+"@adobe/css-tools@~4.3.1":
   "integrity" "sha512-/62yikz7NLScCGAAST5SHdnjaDJQBDq0M2muyRTpf2VQhw6StBg2ALiu73zSJQ4fMVLA+0uBhBHAle7Wg+2kSg=="
   "resolved" "https://registry.npmjs.org/@adobe/css-tools/-/css-tools-4.3.1.tgz"
   "version" "4.3.1"
@@ -855,13 +855,13 @@
   dependencies:
     "pug" "^3.0.2"
 
-"hexo-renderer-stylus@^3.0.0":
-  "integrity" "sha512-wgKOcjUzq1i4Y70luoyYDbh91QeQcDzJO+v1598LgY+IdREFAm+vy1MWtl/TZsVXyPaEtsULNi3Vi22hdsPUSA=="
-  "resolved" "https://registry.npmjs.org/hexo-renderer-stylus/-/hexo-renderer-stylus-3.0.0.tgz"
-  "version" "3.0.0"
+"hexo-renderer-stylus@^3.0.1":
+  "integrity" "sha512-cFm8ZwShBBeFcQwOXc8EK7lIZnSYVD6OJykdL4GBw99hxc4eD5Hlsi32nRzE8sgKv00jhX1s9Da3GVVFMPAVQg=="
+  "resolved" "https://registry.npmjs.org/hexo-renderer-stylus/-/hexo-renderer-stylus-3.0.1.tgz"
+  "version" "3.0.1"
   dependencies:
     "nib" "^1.2.0"
-    "stylus" "^0.59.0"
+    "stylus" "^0.62.0"
 
 "hexo-server@^3.0.0":
   "integrity" "sha512-u4s0ty9Aew6jV+a9oMrXBwhrRpUQ0U8PWM/88a5aHgDru58VY81mVrxOFxs788NAsWQ8OvsJtF5m7mnXoRnSIA=="
@@ -1675,10 +1675,10 @@
   "resolved" "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   "version" "2.1.2"
 
-"sax@^1.2.4", "sax@~1.2.4":
-  "integrity" "sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw=="
-  "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"
-  "version" "1.2.4"
+"sax@^1.2.4", "sax@~1.3.0":
+  "integrity" "sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA=="
+  "resolved" "https://registry.npmjs.org/sax/-/sax-1.3.0.tgz"
+  "version" "1.3.0"
 
 "saxes@^6.0.0":
   "integrity" "sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA=="
@@ -1789,15 +1789,15 @@
   dependencies:
     "min-indent" "^1.0.0"
 
-"stylus@*", "stylus@^0.59.0":
-  "integrity" "sha512-lQ9w/XIOH5ZHVNuNbWW8D822r+/wBSO/d6XvtyHLF7LW4KaCIDeVbvn5DF8fGCJAUCwVhVi/h6J0NUcnylUEjg=="
-  "resolved" "https://registry.npmjs.org/stylus/-/stylus-0.59.0.tgz"
-  "version" "0.59.0"
+"stylus@*", "stylus@^0.62.0":
+  "integrity" "sha512-v3YCf31atbwJQIMtPNX8hcQ+okD4NQaTuKGUWfII8eaqn+3otrbttGL1zSMZAAtiPsBztQnujVBugg/cXFUpyg=="
+  "resolved" "https://registry.npmjs.org/stylus/-/stylus-0.62.0.tgz"
+  "version" "0.62.0"
   dependencies:
-    "@adobe/css-tools" "^4.0.1"
+    "@adobe/css-tools" "~4.3.1"
     "debug" "^4.3.2"
     "glob" "^7.1.6"
-    "sax" "~1.2.4"
+    "sax" "~1.3.0"
     "source-map" "^0.7.3"
 
 "supports-color@^7.1.0":

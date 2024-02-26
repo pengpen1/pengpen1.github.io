@@ -12,9 +12,9 @@
 
 ![](https://cdn.jsdelivr.net/gh/jerryc127/CDN@m2/img/theme-butterfly-readme.png)
 
-預覽: 👍 [Butterfly](https://butterfly.js.org/)  ||  🤞 [CrazyWong](https://blog.crazywong.com/)
+📢 預覽: [Butterfly](https://butterfly.js.org/) || [CrazyWong](https://blog.crazywong.com/)
 
-文檔: 📖 [Butterfly Docs](https://butterfly.js.org/posts/21cfbf15/)
+📖 文檔: [中文](https://butterfly.js.org/posts/21cfbf15/) || [English](https://butterfly.js.org/en/posts/butterfly-docs-en-get-started/)
 
 一款基於[hexo-theme-melody](https://github.com/Molunerfinn/hexo-theme-melody)修改的主題
 
@@ -82,7 +82,7 @@ theme: butterfly
 - [x] 多種在線聊天（Chatra/Tidio/Daovoice/Crisp/messenger）
 - [x] 多種分析系統
 - [x] 谷歌廣告/手動廣告位置
-- [x] 各種站長驗證（Google/Bing/Baidu/360/Yandex）
+- [x] 各種站長驗證
 - [x] 修改網站配色
 - [x] 打字特效 activate_power_mode
 - [x] 多種背景特效（靜止彩帶/動態彩帶/Canvas Nest）
