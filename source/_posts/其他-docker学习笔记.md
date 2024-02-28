@@ -3,6 +3,7 @@ title: docker学习笔记
 date: 2024-02-18 10:56:00
 tags: dcoker
 categories: 其他
+description: 记录学习docker后的笔记，本篇文章更多的是记录公认的简单知识，暂时没有书写自己的心得。阅读时长：5min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207133017.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

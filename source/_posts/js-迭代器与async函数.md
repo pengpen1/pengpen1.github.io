@@ -3,6 +3,7 @@ title: 迭代器与async函数
 date: 2023-12-14 10:23:00
 tags: 迭代器
 categories: js
+description: 探讨Async/Await深层次的原理。阅读时长：10min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132846.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

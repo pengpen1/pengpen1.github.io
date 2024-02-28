@@ -3,10 +3,11 @@ title: VPN杂谈
 date: 2024-01-02 9:40:00
 tags: VPN
 categories: 其他
+description: 本文主要是探讨V2ray、reality、x-ui的使用。注：请勿用于非法用途，遵守我国相关法律。阅读时长：4min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132915.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---
-**概要：**在这篇记录中，我们将探讨一下V2ray以及reality，最后使用x-ui以及realtiy搭建一个VPN。注：本文章仅供学习使用，请勿用于非法用途！
+**概要：**在这篇记录中，我们将探讨一下V2ray以及reality，最后使用x-ui以及realtiy搭建一个VPN。注：本文章仅供学习使用，遵守我国相关法律，请勿用于非法用途！
 
 ### 基础知识
 
@@ -162,4 +163,4 @@ netstat -ntlp   //查看当前所有tcp端口
 - [手把手教你如何自己搭梯子（科学上网、轻松访问油管） - 免费搭建梯子 - 实验室设备网 (zztongyun.com)](https://www.zztongyun.com/article/免费搭建梯子)
 - [【教程】如何搭建梯子（VPN）？-顶级索引 (inurl.top)](https://inurl.top/archives/datizi/)
 - [搬瓦工搭建V2ray科学上网新手指南 – Clash 官网导航 (clashxhub.com)](https://clashxhub.com/banwagon-v2ray/)
-- https://blog.mareep.net/posts/40290/https://artitalk.js.org/)
+- https://blog.mareep.net/posts/40290/https://artitalk.js.org/

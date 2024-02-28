@@ -3,6 +3,7 @@ title: 扩展声明vue全局属性
 date: 2023-09-6 14:40:00
 tags: ts
 categories: ts
+description: 探讨vue3自定义的全局属性如何通过ts的类型监测。阅读时长：2min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/birch-tree-5571242_1280.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

@@ -3,6 +3,7 @@ title: 策略模式优化if-else
 date: 2023-11-29 10:10:00
 tags: 设计模式
 categories: js
+description: 简单的探讨多分支优化方案。阅读时长：3min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/soap-bubbles-8253276_1280.jpg
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

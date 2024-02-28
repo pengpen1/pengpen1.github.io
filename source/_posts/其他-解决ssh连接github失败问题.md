@@ -3,6 +3,7 @@ title: 解决ssh连接github失败问题
 date: 2024-01-19 16:27:00
 tags: github
 categories: 其他
+description: 在这篇记录中，我们将探讨在使用ssh关联自己账户后，连接失败的原因以及如何解决。阅读时长：4min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132945.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

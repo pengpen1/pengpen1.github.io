@@ -3,6 +3,7 @@ title: 解锁移动端的GPT代理
 date: 2024-01-16 5:40:00
 tags: VPN
 categories: 其他
+description: 在这篇记录中，我们将探讨移动端的GPT代理相关问题，请勿用于非法用途。阅读时长：6min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132922.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

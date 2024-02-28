@@ -909,6 +909,11 @@
     "prismjs" "^1.29.0"
     "strip-indent" "^3.0.0"
 
+"hexo-wordcount@^6.0.1":
+  "integrity" "sha512-tbo2P9xRWEKQmRf7+XuPjx9It1MnaE26nA+EEb2DN39gK1x+26W7Nm4Iyp4AugQjBWYYDx7OLn4gp1WFxQpQew=="
+  "resolved" "https://registry.npmjs.org/hexo-wordcount/-/hexo-wordcount-6.0.1.tgz"
+  "version" "6.0.1"
+
 "hexo@^6.3.0":
   "integrity" "sha512-4Jq+rWd8sYvR1YdIQyndN/9WboQ/Mqm6eax8CjrjO+ePFm2oMVafSOx9WEyJ42wcLOHjfyMfnlQhnUuNmJIpPg=="
   "resolved" "https://registry.npmjs.org/hexo/-/hexo-6.3.0.tgz"
