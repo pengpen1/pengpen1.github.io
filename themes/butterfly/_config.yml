@@ -14,7 +14,7 @@ menu:
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
   娱乐||fas fa-diamond:
-    照片: /recreation/Gallery/ || fas fa-images
+    照片: /recreation/gallery/ || fas fa-images
     音乐: /recreation/music/ || fas fa-music
     电影: /recreation/movies/ || fas fa-video
     书籍: /recreation/books/ || fas fa-book
