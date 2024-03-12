@@ -112,3 +112,7 @@ search:
   field: post
   content: true
   format: html
+
+aplayer:
+  asset_inject: true
+  meting: true
