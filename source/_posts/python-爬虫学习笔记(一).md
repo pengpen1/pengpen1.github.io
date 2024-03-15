@@ -2,8 +2,8 @@
 title: 爬虫学习笔记(一)
 date: 2024-03-05 14:23:00
 tags: python
-categories: 其他
-description: 笔者学习python爬虫的第一篇笔记。阅读时长：7min。
+categories: python
+description: 笔者学习python爬虫的第一篇笔记，主要内容是认识爬虫、安装以及了解抓包工具Fiddler。阅读时长：7min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/forest-6631518_1280.jpg
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---
