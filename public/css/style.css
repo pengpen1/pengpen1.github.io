@@ -366,7 +366,8 @@ header {
 }
 
 #description {
-  height: 250px;
+  height: 300px;
+  overflow: auto;
   position: relative;
   padding-right: 50px;
   margin-bottom: 60px;

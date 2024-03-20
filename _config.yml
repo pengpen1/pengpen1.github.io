@@ -126,23 +126,23 @@ douban:
   book:
     path: /recreation/books/index.html
     title: '书籍'
-    quote: '笔者最近收藏的一些书籍'
+    quote: '笔者收藏的一些书籍'
     option:
       date: 2024-3-12 16:42:00
-      comments: true
+      comments: false
       reward: false
-      description: 笔者最近收藏的一些书籍
-      aside: true
+      description: 笔者收藏的一些书籍
+      aside: false
       top_img: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/book-1052014_1280.jpg
   movie:
     path: /recreation/movies/index.html
     title: '电影'
-    quote: '笔者最近看的一些电影'
+    quote: '笔者看过或想看的电影'
     option:
       date: 2024-3-12 16:42:00
-      comments: true
+      comments: false
       reward: false
-      description: 笔者最近看的一些电影
-      aside: true
+      description: 笔者看过或想看的电影
+      aside: false
       top_img: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/movie-2545676_1280.jpg
   timeout: 10000 
