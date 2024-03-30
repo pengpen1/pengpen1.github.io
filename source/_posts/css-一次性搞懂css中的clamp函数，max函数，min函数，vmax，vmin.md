@@ -3,6 +3,7 @@ title: 一次性搞懂css中的clamp函数，max函数，min函数，vmax，vmin
 date: 2023-09-7 17:00:00
 tags: css
 categories: css
+description: 探讨css中的clamp函数，max函数，min函数，vmax以及vmin。阅读时长：3min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/man-8106958_1280.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

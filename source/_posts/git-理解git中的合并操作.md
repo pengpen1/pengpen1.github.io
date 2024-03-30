@@ -3,6 +3,7 @@ title: 理解git中的合并操作
 date: 2023-12-16 15:33:00
 tags: git
 categories: git
+description: 记录笔者对git merge和git pull的理解。阅读时长：4min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132853.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

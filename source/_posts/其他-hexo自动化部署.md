@@ -3,6 +3,7 @@ title: Hexo框架、GitHub Pages与自动化部署
 date: 2023-08-29 16:20:44
 tags: 自动化部署
 categories: 其他
+description: 在这篇记录中，我们将探讨如何利用GitHub Actions实现博客的自动化部署。阅读时长：3min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/background-8033597_1280.png
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---

@@ -2,7 +2,9 @@
 title: 说说
 type: artitalk
 noDate: 'true'
-comments: 'false'
+comments: false
+reward: false
+aside: false
 ---
 
 <!-- 引用 artitalk -->

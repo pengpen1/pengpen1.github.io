@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://pengpen1.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -106,3 +106,43 @@ deploy:
   repo: git@github.com:pengpen1/pengpen1.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+aplayer:
+  asset_inject: true
+  meting: true
+
+douban:
+  id: 278994841
+  builtin: false
+  item_per_page: 10
+  meta_max_line: 4
+  customize_layout: page
+  book:
+    path: /recreation/books/index.html
+    title: '书籍'
+    quote: '笔者收藏的一些书籍'
+    option:
+      date: 2024-3-12 16:42:00
+      comments: false
+      reward: false
+      description: 笔者收藏的一些书籍
+      aside: false
+      top_img: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/book-1052014_1280.jpg
+  movie:
+    path: /recreation/movies/index.html
+    title: '电影'
+    quote: '笔者看过或想看的电影'
+    option:
+      date: 2024-3-12 16:42:00
+      comments: false
+      reward: false
+      description: 笔者看过或想看的电影
+      aside: false
+      top_img: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/movie-2545676_1280.jpg
+  timeout: 10000 

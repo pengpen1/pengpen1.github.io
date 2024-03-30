@@ -3,6 +3,7 @@ title: 子元素突破父元素padding的限制
 date: 2023-09-3 16:00:00
 tags: css
 categories: css
+description: 探讨如何让子元素突破padding的限制。阅读时长：3min。
 cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/autumn-8309311_1280.jpg
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---
