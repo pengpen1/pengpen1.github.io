@@ -28,6 +28,7 @@ menu:
       加载: /animations/load/index || fas fa-spinner
       按钮: /animations/button/index || fas fa-hand-point-up
       弹窗: /animations/modal/index || fas fa-laptop
+      滑块: /animations/slider/index || fas fa-sliders
   工具箱|| fas  fa-cog:
     字符串处理: /toolbox/string/index || fa fa-retweet
     图片处理: /toolbox/image/index || fa fa-images
