@@ -10,26 +10,31 @@ nav:
 # Menu 目錄
 menu:
   首页: / || fas fa-home
-  时间轴: /archives/ || fas fa-archive
-  标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
+  索引|| fas fa-filter:
+    时间轴: /archives/index || fas fa-archive
+    标签: /tags/index || fas fa-tags
+    分类: /categories/index || fas fa-folder-open
   娱乐||fas fa-diamond:
-    照片: /recreation/gallery/ || fas fa-images
-    音乐: /recreation/music/ || fas fa-music
-    电影: /recreation/movies/ || fas fa-video
-    书籍: /recreation/books/ || fas fa-book
+    照片: /recreation/gallery/index || fas fa-images
+    音乐: /recreation/music/index || fas fa-music
+    电影: /recreation/movies/index || fas fa-video
+    书籍: /recreation/books/index || fas fa-book
   3D世界|| fas fa-cube:
-    照片和粒子: /3Dworld/particles/ || fas fa-paint-brush
-    瞪眼鸡: /3Dworld/chicken/ || fas fa-signature
-    梦幻星云: /3Dworld/nebula/ || fas fa-lemon
-    怪兽: /3Dworld/monster/ || fas fa-paw
+    照片和粒子: /3Dworld/particles/index || fas fa-paint-brush
+    瞪眼鸡: /3Dworld/chicken/index || fas fa-signature
+    梦幻星云: /3Dworld/nebula/index || fas fa-lemon
+    怪兽: /3Dworld/monster/index || fas fa-paw
+  动画合集|| fas fa-wallet:
+      加载: /animations/load/index || fas fa-spinner
+      按钮: /animations/button/index || fas fa-hand-point-up
+      弹窗: /animations/modal/index || fas fa-laptop
   工具箱|| fas  fa-cog:
-    字符串处理: /toolbox/string || fa fa-retweet
-    图片处理: /toolbox/image || fa fa-images
+    字符串处理: /toolbox/string/index || fa fa-retweet
+    图片处理: /toolbox/image/index || fa fa-images
   其他||fas fa-list:
-    友链: /other/link/ || fas fa-link
-    说说: /other/artitalk || fas fa-comments
-    关于: /other/about/ || fas fa-heart
+    友链: /other/link/index || fas fa-link
+    说说: /other/artitalk/index || fas fa-comments
+    关于: /other/about/index || fas fa-heart
 # Code Blocks (代碼相關)
 # --------------------------------------
 
