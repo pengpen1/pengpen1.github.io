@@ -23,12 +23,13 @@ menu:
     照片和粒子: /3Dworld/particles/index || fas fa-paint-brush
     瞪眼鸡: /3Dworld/chicken/index || fas fa-signature
     梦幻星云: /3Dworld/nebula/index || fas fa-lemon
+    梦之穿梭: /3Dworld/shuttle/index || fas fa-money-bill
     怪兽: /3Dworld/monster/index || fas fa-paw
   动画合集|| fas fa-wallet:
-      加载: /animations/load/index || fas fa-spinner
-      按钮: /animations/button/index || fas fa-hand-point-up
-      弹窗: /animations/modal/index || fas fa-laptop
-      滑块: /animations/slider/index || fas fa-sliders
+    加载: /animations/load/index || fas fa-spinner
+    按钮: /animations/button/index || fas fa-hand-point-up
+    弹窗: /animations/modal/index || fas fa-laptop
+    滑块: /animations/slider/index || fas fa-sliders
   工具箱|| fas  fa-cog:
     字符串处理: /toolbox/string/index || fa fa-retweet
     图片处理: /toolbox/image/index || fa fa-images

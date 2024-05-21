@@ -1,0 +1,298 @@
+---
+title: 梦之穿梭
+date: 2024-05-21 17:19:00
+aside: false
+top_img: false
+comments: false
+reward: false
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>nebula</title>
+    <style type="text/css">
+      body {
+        overflow: hidden;
+        margin: 0;
+      }
+      .wrap {
+        position: relative;
+        width: 100%;
+      }
+      #world {
+        width: 100%;
+        height: 65vh;
+        overflow: hidden;
+      }
+    </style>
+    <link href="" rel="stylesheet" />
+  </head>
+  <body>
+    <p>(双击可进入全屏，效果更佳哦)</p>
+
+    <div class="wrap">
+      <div id="world"></div>
+    </div>
+
+    <script type="module">
+      import * as THREE from "//unpkg.com/three@0.124.0/build/three.module.js";
+      import { OrbitControls } from "//unpkg.com/three@0.124.0/examples/jsm/controls/OrbitControls.js";
+      import { EffectComposer } from "//unpkg.com/three@0.124.0/examples/jsm/postprocessing/EffectComposer";
+      import { RenderPass } from "//unpkg.com/three@0.124.0/examples/jsm/postprocessing/RenderPass";
+      import { UnrealBloomPass } from "//unpkg.com/three@0.124.0/examples/jsm/postprocessing/UnrealBloomPass";
+      import { Curves } from "//unpkg.com/three@0.124.0/examples/jsm/curves/CurveExtras";
+      // ---- boot
+      const container = document.getElementById("world");
+      const HEIGHT = container.offsetHeight;
+      const WIDTH = container.offsetWidth;
+
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(WIDTH, HEIGHT);
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, 2, 0.01, 5000);
+
+      container.appendChild(renderer.domElement);
+      // ---- setup
+
+      scene.fog = new THREE.FogExp2("black", 0.05);
+      scene.add(new THREE.HemisphereLight("cyan", "orange", 2));
+
+      // ---- const
+
+      const mpms = 20 / 1e3;
+      const steps = 2000;
+
+      // ---- mesh
+
+      const shape = new THREE.Shape();
+      // cw
+      shape.moveTo(-5, -1);
+      shape.quadraticCurveTo(0, -4, 5, -1);
+      shape.lineTo(6, -1);
+      shape.quadraticCurveTo(0, -5, -6, -1);
+      const extrudePath = new Curves.TorusKnot();
+      const UVGenerator = (() => {
+        let i = 0; // face id
+        return {
+          generateTopUV(...xs) {
+            // for 2 "cap" faces
+            return [new THREE.Vector2(), new THREE.Vector2(), new THREE.Vector2()];
+          },
+          generateSideWallUV(_geom, _vs, _a, _b, _c, _d) {
+            // all side faces
+            const segments = 5; // (shape-related; NOT eq `curveSegments`)
+            if (i < segments * steps) {
+              // ignore bottom road faces
+              ++i;
+              return [
+                new THREE.Vector2(),
+                new THREE.Vector2(),
+                new THREE.Vector2(),
+                new THREE.Vector2(),
+              ];
+            }
+            const n = i - segments * steps; // offseted face idx
+            const total_col_segments = 7; // (shape-related)
+            const col = (n / steps) | 0;
+            const left = col / total_col_segments; // normalize
+            const right = (col + 1) / total_col_segments; // normalize
+            const row = n % steps;
+            const bottom = row / steps; // normalize
+            const top = (row + 1) / steps; // normalize
+            ++i;
+            return [
+              new THREE.Vector2(left, bottom), // bottom left
+              new THREE.Vector2(right, bottom), // bottom right
+              new THREE.Vector2(right, top), // top right
+              new THREE.Vector2(left, top), // top left
+            ];
+          },
+        };
+      })();
+      const extrudeGeom = new THREE.ExtrudeBufferGeometry(shape, {
+        bevelEnabled: false,
+        steps,
+        extrudePath,
+        curveSegments: 5,
+        UVGenerator,
+      });
+      const matSideWall = f();
+      const matTop = new THREE.MeshLambertMaterial({ color: "black" });
+      const mesh = new THREE.Mesh(extrudeGeom, [matTop, matSideWall]);
+      scene.add(mesh);
+
+      // ---- composer
+
+      const composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
+      composer.addPass(new UnrealBloomPass(new THREE.Vector2(), 1.2, 0.5, 0.7));
+
+      // ---- anim
+
+      const totalLen = extrudePath.getLength();
+      const { binormals } = extrudePath.computeFrenetFrames(steps);
+      const THREEm = new THREE.Matrix4(); // rotation matrix
+
+      renderer.setAnimationLoop((t /*ms*/) => {
+        const THREEu = ((mpms * t) % totalLen) / totalLen;
+        // update cam position
+        extrudePath.getPointAt(THREEu, camera.position);
+        // update cam rotation
+        camera.setRotationFromMatrix(
+          THREEm.lookAt(
+            /* eye */ camera.position,
+            /* target */ extrudePath.getPointAt(Math.min(1.0, THREEu + 0.01)),
+            /* up */ binormals[(THREEu * steps) | 0]
+          )
+        );
+        renderer.getDrawingBufferSize(composer.passes[1].resolution);
+        composer.render();
+        mesh.material[1].uniforms.t.value = t;
+      });
+
+      // ---- sidewall material
+
+      function f() {
+        const url =
+          "https://images.unsplash.com/photo-1550747528-cdb45925b3f7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dW5pY29ybnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60";
+        const tex = new THREE.TextureLoader().load(url);
+        tex.wrapS = THREE.MirroredRepeatWrapping;
+        tex.wrapT = THREE.RepeatWrapping;
+
+        const shader = THREE.ShaderLib.lambert;
+        const uniforms = THREE.UniformsUtils.merge([
+          shader.uniforms,
+          {
+            t: { value: 0 },
+            stretch: { value: new THREE.Vector2(1, 10) },
+            div: { value: new THREE.Vector2(32, 8) },
+          },
+        ]);
+        const vertexShader =
+          `
+    uniform sampler2D map;
+    uniform vec2 stretch;
+    ` +
+          shader.vertexShader.replace(
+            "#include <uv_vertex>",
+            `
+    #ifdef USE_UV
+        vUv = ( uvTransform * vec3( uv, 1 ) ).xy * stretch;
+    #endif
+    `
+          );
+        const fragmentShader =
+          `
+    uniform vec2 div;
+    uniform vec2 stretch;
+    uniform float t;
+    ` +
+          shader.fragmentShader.replace(
+            "#include <map_fragment>",
+            `
+    #ifdef USE_MAP
+        {
+            vec2 i = vec2(ivec2( vUv * div ));
+            vec4 tA = texture2D( map, ( i ) / div );
+            vec4 tB = texture2D( map, ( i + 1.0 ) / div );
+            vec4 texel = 0.5 * (mix( tA, tB, vUv.x ) + mix( tA, tB, vUv.y )); 
+            texel.b = step( 0.5, texel.b ) + ( sin( t * 0.001 ) * 0.5 + 0.5 );
+            texel.r *= 2.0;
+            texel.g *= 0.5;
+            vec2 uv = fract( vUv * stretch * div );
+            texel *= step( 0.2, uv.x ) * step ( 0.2, uv.y );
+            diffuseColor *= texel;
+        }
+	#endif
+    `
+          );
+        const mat = new THREE.ShaderMaterial({
+          uniforms,
+          vertexShader,
+          fragmentShader,
+          lights: true,
+          fog: true,
+        });
+        mat.map = mat.uniforms.map.value = tex;
+
+        return mat;
+      }
+
+      function onWindowDblclick() {
+        // 获取容器元素
+        const container = document.getElementById("world");
+        console.log("1", container.offsetWidth, container.offsetHeight);
+        // 判断是否已经进入全屏模式
+        // 进入全屏模式
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+          if (container) {
+            // 将容器元素返回初始大小
+            container.style.position = "relative";
+            container.style.top = 0;
+            container.style.left = 0;
+            container.style.width = "100%";
+            container.style.height = "60vh";
+            container.style.zIndex = 0; // 确保容器在最前面
+          }
+        } else {
+          document.documentElement.requestFullscreen();
+          if (container) {
+            // 将容器元素占满全屏
+            container.style.position = "fixed";
+            container.style.top = 0;
+            container.style.left = 0;
+            container.style.width = "100vw";
+            container.style.height = "100vh";
+            container.style.zIndex = 9999; // 确保容器在最前面
+          }
+        }
+        console.log("2", container.offsetWidth, container.offsetHeight); // 1920 919
+        // 更新camera的aspect比例
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+
+        // 更新renderer的大小
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+      function onWindowResize() {
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        // onWindowDblclick实际只是起到更新dom元素的作用，requestFullscreen返回的是Promise所以有延迟，更新renderer的大小实际是靠resize事件
+        console.log(4, container.offsetWidth, container.offsetHeight);
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+      function onFullscreenChange() {
+        const container = document.getElementById("world");
+        if (document.fullscreenElement) {
+          // 如果进入全屏
+          container.style.position = "fixed";
+          container.style.top = 0;
+          container.style.left = 0;
+          container.style.width = "100vw";
+          container.style.height = "100vh";
+          container.style.zIndex = 9999; // 确保容器在最前面
+        } else {
+          // 如果退出全屏
+          container.style.position = "relative";
+          container.style.width = "100%";
+          container.style.height = "65vh";
+          container.style.zIndex = 0; // 还原zIndex
+        }
+
+        console.log(3, container.offsetWidth, container.offsetHeight);
+        // 更新相机和渲染器设置
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+
+      window.addEventListener("resize", onWindowResize);
+      document.addEventListener("dblclick", onWindowDblclick);
+      document.addEventListener("fullscreenchange", onFullscreenChange); // 会在浏览器进入或退出全屏模式 后 立即触发
+    </script>
+  </body>
+</html>

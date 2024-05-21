@@ -43,7 +43,7 @@ reward: false
 
       // console.clear();
       const container = document.getElementById("world");
-      const HEIGHT = container.offsetWidth;
+      const HEIGHT = container.offsetHeight;
       const WIDTH = container.offsetWidth;
 
       let scene = new THREE.Scene();
@@ -51,7 +51,7 @@ reward: false
       let camera = new THREE.PerspectiveCamera(60, WIDTH / HEIGHT, 1, 1000);
       camera.position.set(0, 4, 21);
       let renderer = new THREE.WebGLRenderer();
-      renderer.setSize(WIDTH, window.innerHeight);
+      renderer.setSize(WIDTH, HEIGHT);
       container.appendChild(renderer.domElement);
 
       let controls = new OrbitControls(camera, renderer.domElement);
