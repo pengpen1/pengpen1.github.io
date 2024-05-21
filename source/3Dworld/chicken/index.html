@@ -507,7 +507,7 @@ reward: false
         if (document.fullscreenElement) {
           document.exitFullscreen();
           if (container) {
-            // 将容器元素占满全屏
+            // 将容器元素返回初始大小
             container.style.position = "relative";
             container.style.top = 0;
             container.style.left = 0;
@@ -518,7 +518,7 @@ reward: false
         } else {
           document.documentElement.requestFullscreen();
           if (container) {
-            // 将容器元素返回初始大小
+            // 将容器元素占满全屏
             container.style.position = "fixed";
             container.style.top = 0;
             container.style.left = 0;

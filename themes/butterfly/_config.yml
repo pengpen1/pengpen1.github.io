@@ -21,6 +21,7 @@ menu:
   3D世界|| fas fa-cube:
     照片和粒子: /3Dworld/particles/ || fas fa-paint-brush
     瞪眼鸡: /3Dworld/chicken/ || fas fa-signature
+    梦幻星云: /3Dworld/nebula/ || fas fa-lemon
     怪兽: /3Dworld/monster/ || fas fa-paw
   工具箱|| fas  fa-cog:
     字符串处理: /toolbox/string || fa fa-retweet
