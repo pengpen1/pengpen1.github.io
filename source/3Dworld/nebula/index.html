@@ -205,10 +205,37 @@ reward: false
         camera.aspect = container.offsetWidth / container.offsetHeight;
         camera.updateProjectionMatrix();
         // onWindowDblclick实际只是起到更新dom元素的作用，requestFullscreen返回的是Promise所以有延迟，更新renderer的大小实际是靠resize事件
+        console.log(4, container.offsetWidth, container.offsetHeight);
         renderer.setSize(container.offsetWidth, container.offsetHeight);
       }
+      function onFullscreenChange() {
+        const container = document.getElementById("world");
+        if (document.fullscreenElement) {
+          // 如果进入全屏
+          container.style.position = "fixed";
+          container.style.top = 0;
+          container.style.left = 0;
+          container.style.width = "100vw";
+          container.style.height = "100vh";
+          container.style.zIndex = 9999; // 确保容器在最前面
+        } else {
+          // 如果退出全屏
+          container.style.position = "relative";
+          container.style.width = "100%";
+          container.style.height = "65vh";
+          container.style.zIndex = 0; // 还原zIndex
+        }
+
+        console.log(3, container.offsetWidth, container.offsetHeight);
+        // 更新相机和渲染器设置
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+
       window.addEventListener("resize", onWindowResize);
       document.addEventListener("dblclick", onWindowDblclick);
+      document.addEventListener("fullscreenchange", onFullscreenChange); // 会在浏览器进入或退出全屏模式 后 立即触发
     </script>
   </body>
 </html>

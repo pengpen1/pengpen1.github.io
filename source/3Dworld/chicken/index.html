@@ -23,6 +23,7 @@ reward: false
         width: 100%;
       }
       #world {
+        position: relative;
         background: #e0dacd;
         width: 100%;
         height: 65vh;
@@ -30,7 +31,7 @@ reward: false
       }
       #instructions {
         position: absolute;
-        top: 25%;
+        bottom: 15%;
         left: 50%;
         transform: translateX(-50%);
         font-family: "Open Sans", sans-serif;
@@ -108,7 +109,7 @@ reward: false
 
       function init() {
         scene = new THREE.Scene();
-        HEIGHT = container.offsetWidth;
+        HEIGHT = container.offsetHeight;
         WIDTH = container.offsetWidth;
         aspectRatio = WIDTH / HEIGHT;
         fieldOfView = 60;
@@ -139,6 +140,7 @@ reward: false
         document.addEventListener("touchend", handleTouchEnd, false);
         document.addEventListener("touchmove", handleTouchMove, false);
         document.addEventListener("dblclick", onWindowDblclick);
+        document.addEventListener("fullscreenchange", onFullscreenChange); // 会在浏览器进入或退出全屏模式 后 立即触发
         /*
   controls = new THREE.OrbitControls( camera, renderer.domElement);
   //*/
@@ -531,7 +533,32 @@ reward: false
         camera.updateProjectionMatrix();
         renderer.setSize(container.offsetWidth, container.offsetHeight);
       }
+      
+      function onFullscreenChange() {
+        const container = document.getElementById("world");
+        if (document.fullscreenElement) {
+          // 如果进入全屏
+          container.style.position = "fixed";
+          container.style.top = 0;
+          container.style.left = 0;
+          container.style.width = "100vw";
+          container.style.height = "100vh";
+          container.style.zIndex = 9999; // 确保容器在最前面
+        } else {
+          // 如果退出全屏
+          container.style.position = "relative";
+          container.style.width = "100%";
+          container.style.height = "65vh";
+          container.style.zIndex = 0; // 还原zIndex
+        }
 
+        console.log(3, container.offsetWidth, container.offsetHeight);
+        // 更新相机和渲染器设置
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+      
       function loop() {
         var tempHA = (mousePos.x - windowHalfX) / 200;
         var tempVA = (mousePos.y - windowHalfY) / 200;

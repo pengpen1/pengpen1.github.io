@@ -91,6 +91,7 @@ reward: false
 
         window.addEventListener("resize", onWindowResize, false);
         window.addEventListener("dblclick", onWindowDblclick);
+        document.addEventListener("fullscreenchange", onFullscreenChange); // 会在浏览器进入或退出全屏模式 后 立即触发
       }
 
       function createScene() {
@@ -273,8 +274,8 @@ reward: false
             container.style.top = 0;
             container.style.left = 0;
             container.style.width = "100%";
-            container.style.height = "60vh";
-            container.style.zIndex = 9999; // 确保容器在最前面
+            container.style.height = "65vh";
+            container.style.zIndex = 0; // 还原zIndex
           }
         } else {
           document.documentElement.requestFullscreen();
@@ -288,6 +289,31 @@ reward: false
             container.style.zIndex = 9999; // 确保容器在最前面
           }
         }
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+
+      function onFullscreenChange() {
+        const container = document.getElementById("container");
+        if (document.fullscreenElement) {
+          // 如果进入全屏
+          container.style.position = "fixed";
+          container.style.top = 0;
+          container.style.left = 0;
+          container.style.width = "100vw";
+          container.style.height = "100vh";
+          container.style.zIndex = 9999; // 确保容器在最前面
+        } else {
+          // 如果退出全屏
+          container.style.position = "relative";
+          container.style.width = "100%";
+          container.style.height = "65vh";
+          container.style.zIndex = 0; // 还原zIndex
+        }
+
+        console.log(3, container.offsetWidth, container.offsetHeight);
+        // 更新相机和渲染器设置
         camera.aspect = container.offsetWidth / container.offsetHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(container.offsetWidth, container.offsetHeight);
