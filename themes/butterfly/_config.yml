@@ -21,16 +21,17 @@ menu:
     书籍: /recreation/books/index || fas fa-book
   3D世界|| fas fa-cube:
     照片和粒子: /3Dworld/particles/index || fas fa-paint-brush
-    瞪眼鸡: /3Dworld/chicken/index || fas fa-signature
+    吹风的狮子: /3Dworld/monster/index || fas fa-paw
     梦幻星云: /3Dworld/nebula/index || fas fa-lemon
     梦之穿梭: /3Dworld/shuttle/index || fas fa-money-bill
-    怪兽: /3Dworld/monster/index || fas fa-paw
+    瞪眼鸡: /3Dworld/chicken/index || fas fa-signature
   动画合集|| fas fa-wallet:
     加载: /animations/load/index || fas fa-spinner
     按钮: /animations/button/index || fas fa-hand-point-up
     弹窗: /animations/modal/index || fas fa-laptop
     滑块: /animations/slider/index || fas fa-sliders
     轮播: /animations/carousel/index || fas fa-ticket
+    移动: /animations/move/index || fas fa-arrow-right
   工具箱|| fas  fa-cog:
     字符串处理: /toolbox/string/index || fa fa-retweet
     图片处理: /toolbox/image/index || fa fa-images
