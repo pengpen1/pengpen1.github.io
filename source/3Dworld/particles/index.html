@@ -1,0 +1,323 @@
+---
+title: 照片和粒子特效
+date: 2024-05-16 17:31:49
+aside: false
+top_img: false
+comments: false
+reward: false
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>particles</title>
+    <style type="text/css">
+      body {
+        overflow: hidden;
+        margin: 0;
+      }
+      #container {
+        width: 100%;
+        height: 65vh;
+      }
+    </style>
+    <link href="" rel="stylesheet" />
+  </head>
+  <body>
+    <p>(双击可进入全屏，效果更佳哦；试试鼠标拖动吧)</p>
+    <div id="container"></div>
+
+    <script type="x-shader/x-vertex" id="vertexShader">
+      // uniform float amplitude;
+      // attribute float size;
+      uniform float amplitude;
+
+      attribute vec3 vertexColor;
+
+      varying vec4 varColor;
+
+      void main()
+      {
+      varColor = vec4(vertexColor, 1.0);
+
+      vec4 pos = vec4(position, 1.0);
+      pos.z *= amplitude;
+
+      vec4 mvPosition = modelViewMatrix * pos;
+
+      gl_PointSize = 1.0;
+      gl_Position = projectionMatrix * mvPosition;
+      }
+    </script>
+
+    <script type="x-shader/x-fragment" id="fragmentShader">
+      varying vec4 varColor;
+
+      void main()
+      {
+      gl_FragColor = varColor;
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r62/three.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/trackball_ctrl_r62.js"></script>
+
+    <script>
+      var container;
+      var camera, scene, renderer;
+      var controls;
+
+      var shaderUniforms, shaderAttributes;
+
+      var particles = [];
+      var particleSystem;
+
+      var imageWidth = 1920;
+      var imageHeight = 1080;
+      var imageData = null;
+
+      var animationTime = 0;
+      var animationDelta = 0.03;
+
+      init();
+      // tick();
+
+      function init() {
+        createScene();
+        createControls();
+        createPixelData();
+
+        window.addEventListener("resize", onWindowResize, false);
+        window.addEventListener("dblclick", onWindowDblclick);
+        document.addEventListener("fullscreenchange", onFullscreenChange); // 会在浏览器进入或退出全屏模式 后 立即触发
+      }
+
+      function createScene() {
+        container = document.getElementById("container");
+
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera(
+          20,
+          container.offsetWidth / container.offsetHeight,
+          1,
+          10000
+        );
+        camera.position.z = 4000;
+        camera.lookAt(scene.position);
+
+        renderer = new THREE.WebGLRenderer({
+          antialias: true,
+        });
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+        renderer.setClearColor(0x000000, 1);
+
+        container.appendChild(renderer.domElement);
+      }
+
+      function createControls() {
+        controls = new THREE.TrackballControls(camera);
+
+        controls.rotateSpeed = 1.5;
+        controls.zoomSpeed = 1.5;
+        controls.panSpeed = 1.0;
+
+        controls.noZoom = false;
+        controls.noPan = true;
+
+        controls.staticMoving = true;
+        controls.dynamicDampingFactor = 0.3;
+      }
+
+      function createPixelData() {
+        var image = document.createElement("img");
+        var canvas = document.createElement("canvas");
+        var context = canvas.getContext("2d");
+
+        image.crossOrigin = "Anonymous";
+        image.onload = function () {
+          image.width = canvas.width = imageWidth;
+          image.height = canvas.height = imageHeight;
+          console.log(image.height);
+
+          context.fillStyle = context.createPattern(image, "no-repeat");
+          context.fillRect(0, 0, imageWidth, imageHeight);
+          //context.drawImage(image, 0, 0, imageWidth, imageHeight);
+
+          imageData = context.getImageData(0, 0, imageWidth, imageHeight).data;
+
+          createPaticles();
+          tick();
+        };
+
+        image.src =
+          "https://cdn.jsdelivr.net/gh/pengpen1/blog-images/v2-340221b5186a86636cd3d17e355359b2_r.png";
+        // image.src =
+        //   "https://cdn.jsdelivr.net/gh/pengpen1/blog-images/rose-2101475_1280.jpg";
+      }
+
+      function createPaticles() {
+        var colors = [];
+        var weights = [0.2126, 0.7152, 0.0722];
+        var c = 0;
+
+        var geometry, material;
+        var x, y;
+        var zRange = 400;
+
+        geometry = new THREE.Geometry();
+        geometry.dynamic = false;
+
+        x = imageWidth * -0.5;
+        y = imageHeight * 0.5;
+
+        shaderAttributes = {
+          vertexColor: {
+            type: "c",
+            value: [],
+          },
+        };
+
+        shaderUniforms = {
+          amplitude: {
+            type: "f",
+            value: 0.5,
+          },
+        };
+
+        var shaderMaterial = new THREE.ShaderMaterial({
+          attributes: shaderAttributes,
+          uniforms: shaderUniforms,
+          vertexShader: document.getElementById("vertexShader").textContent,
+          fragmentShader: document.getElementById("fragmentShader").textContent,
+        });
+
+        for (var i = 0; i < imageHeight; i++) {
+          for (var j = 0; j < imageWidth; j++) {
+            var color = new THREE.Color();
+
+            color.setRGB(
+              imageData[c] / 255,
+              imageData[c + 1] / 255,
+              imageData[c + 2] / 255
+            );
+            shaderAttributes.vertexColor.value.push(color);
+
+            var weight =
+              color.r * weights[0] +
+              color.g * weights[1] +
+              color.b * weights[2];
+
+            var vertex = new THREE.Vector3();
+
+            vertex.x = x;
+            vertex.y = y;
+            vertex.z = zRange * -0.5 + zRange * weight;
+
+            geometry.vertices.push(vertex);
+
+            c += 4;
+            x++;
+          }
+
+          x = imageWidth * -0.5;
+          y--;
+        }
+        console.log(geometry.vertices.length);
+        particleSystem = new THREE.ParticleSystem(geometry, shaderMaterial);
+
+        scene.add(particleSystem);
+      }
+
+      function tick() {
+        requestAnimationFrame(tick);
+
+        update();
+        render();
+      }
+
+      function update() {
+        shaderUniforms.amplitude.value = Math.sin(animationTime);
+
+        animationTime += animationDelta;
+
+        controls.update();
+      }
+
+      function render() {
+        renderer.render(scene, camera);
+      }
+
+      function onWindowResize() {
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        // 单页面应用（SPA）和多页面应用（MPA）的区别
+        // SPA只有一个主页面，所有的页面内容都包含在这个主页面中，页面跳转仅刷新局部资源。
+        // MPA有多个独立的页面，每个页面必须重复加载js、css等相关资源，页面跳转需要整页资源刷新。
+        console.log("因为不是单页面，所以resize事件不用手动清除");
+
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+
+      function onWindowDblclick() {
+        // 获取容器元素
+        const container = document.getElementById("container");
+
+        // 进入全屏模式
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+          if (container) {
+            // 将容器元素返回初始大小
+            container.style.position = "relative";
+            container.style.top = 0;
+            container.style.left = 0;
+            container.style.width = "100%";
+            container.style.height = "65vh";
+            container.style.zIndex = 0; // 还原zIndex
+          }
+        } else {
+          document.documentElement.requestFullscreen();
+          if (container) {
+            // 将容器元素占满全屏
+            container.style.position = "fixed";
+            container.style.top = 0;
+            container.style.left = 0;
+            container.style.width = "100%";
+            container.style.height = "100%";
+            container.style.zIndex = 9999; // 确保容器在最前面
+          }
+        }
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+
+      function onFullscreenChange() {
+        const container = document.getElementById("container");
+        if (document.fullscreenElement) {
+          // 如果进入全屏
+          container.style.position = "fixed";
+          container.style.top = 0;
+          container.style.left = 0;
+          container.style.width = "100vw";
+          container.style.height = "100vh";
+          container.style.zIndex = 9999; // 确保容器在最前面
+        } else {
+          // 如果退出全屏
+          container.style.position = "relative";
+          container.style.width = "100%";
+          container.style.height = "65vh";
+          container.style.zIndex = 0; // 还原zIndex
+        }
+
+        console.log(3, container.offsetWidth, container.offsetHeight);
+        // 更新相机和渲染器设置
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,387 @@
+---
+title: 滑块
+date: 2024-05-21 15:28:00
+aside: false
+top_img: false
+comments: false
+reward: false
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>slider</title>
+    <style type="text/css">
+      body {
+        margin: 0;
+      }
+      :root {
+        --primary-light: #8abdff;
+        --primary: #49b1f5;
+        --primary-dark: #3e6ff7;
+        --white: #ffffff;
+        --greyLight-1: #e4ebf5;
+        --greyLight-2: #c8d0e7;
+        --greyLight-3: #bec8e4;
+        --greyDark: #9baacf;
+      }
+      .center {
+        font-family: "Source Sans Pro", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      h1 {
+        font-weight: normal;
+        margin-top: 0px;
+      }
+
+      .switch {
+        display: block;
+        margin-top: 24px;
+      }
+      .switch .slider {
+        position: relative;
+        display: inline-block;
+        height: 8px;
+        width: 32px;
+        border-radius: 8px;
+        cursor: pointer;
+        background: #c5c5c5;
+        transition: all 0.2s ease;
+      }
+      .switch .slider:after {
+        background: #eeeeee;
+        position: absolute;
+        left: -8px;
+        top: -8px;
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+        content: "";
+        transition: all 0.2s ease;
+      }
+      .switch label {
+        margin-right: 7px;
+      }
+      .switch .input,
+      .switch__2 input,
+      .switch__3 input {
+        display: none;
+      }
+      .switch .input ~ .label {
+        margin-left: 8px;
+      }
+      .switch .input:checked ~ .slider:after {
+        left: 16px;
+      }
+      .switch .input:checked ~ .slider {
+        background: #fc5d9b;
+      }
+      .switch .input:checked ~ .slider:after {
+        background: #ef0460;
+      }
+
+      .switch__2,
+      .switch__3 {
+        margin-top: 25px;
+        width: 3rem;
+      }
+
+      .switch__2 label,
+      .switch__3 label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 1.5rem;
+        box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+          -0.2rem -0.2rem 0.5rem var(--white);
+        background: rgba(255, 255, 255, 0);
+        position: relative;
+        cursor: pointer;
+        border-radius: 1.6rem;
+      }
+
+      .switch__2 label::after,
+      .switch__3 label::after {
+        content: "";
+        position: absolute;
+        left: 0.4rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background: var(--greyDark);
+        transition: all 0.4s ease;
+      }
+
+      .switch__2 label::before,
+      .switch__3 label::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(
+          330deg,
+          var(--primary-dark) 0%,
+          var(--primary) 50%,
+          var(--primary-light) 100%
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      .switch__2 input:checked ~ label::before,
+      .switch__3 input:checked ~ label::before {
+        opacity: 1;
+      }
+      .switch__2 input:checked ~ label::after,
+      .switch__3 input:checked ~ label::after {
+        left: 57%;
+        background: var(--greyLight-1);
+      }
+      /* slider */
+      .slider__box {
+        width: 10rem;
+        margin-top: 25px;
+        height: 1rem;
+        cursor: pointer;
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+          inset -0.2rem -0.2rem 0.5rem var(--white);
+        border-radius: 1rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slider__btn {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: var(--white);
+        position: absolute;
+        box-shadow: 0px 0.1rem 0.3rem 0px var(--greyLight-3);
+        z-index: 200;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slider__btn:hover ~ .slider__tooltip {
+        opacity: 1;
+      }
+      .slider__btn::after {
+        content: "";
+        position: absolute;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+          inset -0.2rem -0.2rem 0.5rem var(--white);
+      }
+      .slider__color {
+        height: 100%;
+        width: 50%;
+        position: absolute;
+        left: 0;
+        z-index: 100;
+        border-radius: inherit;
+        background: var(--primary);
+        background: linear-gradient(
+          -1deg,
+          var(--primary-dark) 0%,
+          var(--primary) 50%,
+          var(--primary-light) 100%
+        );
+      }
+      .slider__tooltip {
+        position: absolute;
+        top: 2.6rem;
+        height: 2.5rem;
+        width: 3rem;
+        border-radius: 0.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        color: var(--primary);
+        box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+          -0.2rem -0.2rem 0.5rem var(--white);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .segmented-control {
+        margin-top: 80px;
+        width: 20.4rem;
+        height: 4rem;
+        box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+          -0.2rem -0.2rem 0.5rem var(--white);
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      .segmented-control p{
+        /* 防止博客框架样式产生影响 */
+        margin: auto !important;
+      }
+      .segmented-control input {
+        display: none;
+      }
+      .segmented-control > input:checked + label {
+        transition: all 0.5s ease;
+        color: var(--primary);
+      }
+      .segmented-control__1,
+      .segmented-control__2,
+      .segmented-control__3 {
+        width: 6.8rem;
+        height: 3.6rem;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: var(--greyDark);
+        transition: all 0.5s ease;
+      }
+      .segmented-control__1:hover,
+      .segmented-control__2:hover,
+      .segmented-control__3:hover {
+        color: var(--primary);
+      }
+      .segmented-control__color {
+        position: absolute;
+        height: 3.4rem;
+        width: 6.2rem;
+        margin-left: 0.3rem;
+        border-radius: 0.8rem;
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+          inset -0.2rem -0.2rem 0.5rem var(--white);
+        pointer-events: none;
+      }
+
+      #tab-1:checked ~ .segmented-control__color {
+        transform: translateX(0);
+        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      #tab-2:checked ~ .segmented-control__color {
+        transform: translateX(6.8rem);
+        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      #tab-3:checked ~ .segmented-control__color {
+        transform: translateX(13.6rem);
+        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+    </style>
+    <link href="" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="center">
+      <h1>Programming Simulator</h1>
+
+      <div class="switch">
+        <input id="one" class="input" type="checkbox" />
+        <label for="one" class="slider"></label>
+        <label for="one" class="label">switch</label>
+      </div>
+
+      <div class="switch__2">
+        <input id="switch-2" type="checkbox" checked />
+        <label for="switch-2"></label>
+      </div>
+
+      <div class="switch__3">
+        <input id="switch-3" type="checkbox" />
+        <label for="switch-3"></label>
+      </div>
+
+      <div class="slider">
+        <div class="slider__box">
+          <span class="slider__btn" id="find"></span>
+          <span class="slider__color"></span>
+          <span class="slider__tooltip">50%</span>
+        </div>
+      </div>
+
+      <div class="segmented-control">
+        <input type="radio" name="radio2" value="3" id="tab-1" checked />
+        <label for="tab-1" class="segmented-control__1"> <p>Tab 1</p></label>
+
+        <input type="radio" name="radio2" value="4" id="tab-2" />
+        <label for="tab-2" class="segmented-control__2"> <p>Tab 2</p></label>
+
+        <input type="radio" name="radio2" value="5" id="tab-3" />
+        <label for="tab-3" class="segmented-control__3"> <p>Tab 3</p></label>
+
+        <div class="segmented-control__color"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const container = document.querySelector(".slider__box");
+    const btn = document.querySelector(".slider__btn");
+    const color = document.querySelector(".slider__color");
+    const tooltip = document.querySelector(".slider__tooltip");
+
+    dragElement = (target, btn) => {
+      target.addEventListener("mousedown", (e) => {
+        onMouseMove(e);
+        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mouseup", onMouseUp);
+      });
+
+      onMouseMove = (e) => {
+        e.preventDefault();
+        let targetRect = target.getBoundingClientRect();
+        let x = e.pageX - targetRect.left + 10;
+        if (x > targetRect.width) {
+          x = targetRect.width;
+        }
+        if (x < 0) {
+          x = 0;
+        }
+        btn.x = x - 10;
+        btn.style.left = btn.x + "px";
+
+        // get the position of the button inside the container (%)
+        let percentPosition = ((btn.x + 10) / targetRect.width) * 100;
+
+        // color width = position of button (%)
+        color.style.width = percentPosition + "%";
+
+        // move the tooltip when button moves, and show the tooltip
+        tooltip.style.left = btn.x - 5 + "px";
+        tooltip.style.opacity = 1;
+
+        // show the percentage in the tooltip
+        tooltip.textContent = Math.round(percentPosition) + "%";
+      };
+
+      onMouseUp = (e) => {
+        window.removeEventListener("mousemove", onMouseMove);
+        tooltip.style.opacity = 0;
+
+        btn.addEventListener("mouseover", function () {
+          tooltip.style.opacity = 1;
+        });
+
+        btn.addEventListener("mouseout", function () {
+          tooltip.style.opacity = 0;
+        });
+      };
+    };
+
+    dragElement(container, btn);
+  </script>
+</html>

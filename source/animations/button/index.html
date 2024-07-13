@@ -1,0 +1,176 @@
+---
+title: 按钮
+date: 2024-05-21 13:44:00
+aside: false
+top_img: false
+comments: false
+reward: false
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>button</title>
+    <style type="text/css">
+      body {
+        margin: 0;
+      }
+      .wrap {
+        position: relative;
+        width: 100%;
+        padding: 10px 40px;
+        background-color: #1d2630;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        background: #2c3e50;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      button {
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      a:hover {
+        color: #2ecc71;
+      }
+
+      .sub-main {
+        margin: 22px;
+      }
+
+      .button-one,
+      .button-two,
+      .button-three {
+        text-align: center;
+        cursor: pointer;
+        font-size: 24px;
+        margin: 0 0 0 100px;
+      }
+
+      /*Button One*/
+      .button-one {
+        padding: 20px 60px;
+        outline: none;
+        background-color: #27ae60;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 9px #95a5a6;
+      }
+
+      .button-one:hover {
+        background-color: #2ecc71;
+      }
+
+      .button-one:active {
+        background-color: #2ecc71;
+        box-shadow: 0 5px #95a5a6;
+        transform: translateY(4px);
+      }
+
+      /*Button Two*/
+      .button-two {
+        border-radius: 4px;
+        background-color: #d35400;
+        border: none;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+      }
+
+      .button-two span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .button-two span:after {
+        content: "»";
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .button-two:hover span {
+        padding-right: 25px;
+      }
+
+      .button-two:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+
+      /*Button Three*/
+      .button-three {
+        position: relative;
+        background-color: #f39c12;
+        border: none;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+      }
+
+      .button-three:hover {
+        background: #fff;
+        box-shadow: 0px 2px 10px 5px #97b1bf;
+        color: #000;
+      }
+
+      .button-three:after {
+        content: "";
+        background: #f1c40f;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.8s;
+      }
+
+      .button-three:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+      }
+    </style>
+    <link href="" rel="stylesheet" />
+  </head>
+  <body>
+    <p>
+      project from：
+      <a href="https://codepen.io/mohaiman/details/jqKzVb">codepen</a>
+    </p>
+
+    <div class="wrap">
+      <div class="sub-main">
+        <button class="button-one">Tap Me</button>
+      </div>
+      <div class="sub-main">
+        <button class="button-two"><span>Hover Me</span></button>
+      </div>
+      <div class="sub-main">
+        <button class="button-three">Click Me</button>
+      </div>
+    </div>
+  </body>
+</html>
