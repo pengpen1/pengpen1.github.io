@@ -167,6 +167,51 @@ type Name = string;
 type NameOrResolver = Name | (() => Name);
 ```
 
+**Record**：
+
+`Record` 是 TypeScript 提供的一个实用类型，用于创建键值对对象的类型。它允许你定义一个对象，其中所有的键都具有相同的类型，并且所有的值也具有相同的类型。
+
+```ts
+Record<Keys, Type>
+    
+interface FormItem {
+  label: string;
+  prop: string;
+  span: number;
+  components: Component[];
+  rules?: { required: boolean; message: string; trigger: string }[];
+}
+type ItemsMap = Record<string, FormItem>;
+```
+
+**交叉和继承**：
+
+```ts
+import { AxiosResponse } from 'axios';
+
+interface CustomResponse {
+  code: number;
+  data: any;
+  ms: string;
+}
+
+type CombinedResponse = AxiosResponse & CustomResponse;
+```
+
+```ts
+import { AxiosResponse } from 'axios';
+
+interface CustomResponse {
+  code: number;
+  data: any;
+  ms: string;
+}
+
+interface CombinedResponse extends AxiosResponse, CustomResponse {}
+```
+
+CombinedResponse接口继承了 `AxiosResponse` 和 `CustomResponse`，因此它同时包含了这两个接口中的所有属性
+
 
 
 #### 在Vue3项目中的使用
