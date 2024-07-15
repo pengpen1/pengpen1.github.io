@@ -3,7 +3,7 @@ title: 破解office
 date: 2024-07-13 18:36:00
 categories: 其他
 description: 在这篇记录中，我们将探讨如何破解office。阅读时长：4min。
-cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132945.png
+cover: https://cdn.jsdelivr.net/gh/pengpen1/blog-images/coffee-2151200_1280.jpg
 top_img: https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png
 ---
 **概要：**在这篇记录中，我们将探讨如何破解office。仅用于学习，请勿用于非法用途！
@@ -22,7 +22,11 @@ Key Management Service(简称:KMS)KMS激活会维持180天，原理：由于Wind
 ![](https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240713184528.png)3.安装 
 
 ```shell
-cd c:\office（你安装文件夹目录） setup.exe /download config.xml setup.exe /configure config.xml 
+cd c:\office（你安装文件夹目录） 
+// 下载
+setup.exe /download config.xml 
+// 自动安装
+setup.exe /configure config.xml 
 ```
 
 4.激活 
@@ -33,11 +37,7 @@ cscript ospp.vbs /sethst:kms.03k.org （当前kms地址失效的话，可以尝�
 cscript ospp.vbs /act 
 ```
 
-![image-20240713184734861](C:\Users\coderpeng\AppData\Roaming\Typora\typora-user-images\image-20240713184734861.png)
-
 5.备选的KMS kms.03k.org kms.chinancce.com kms.luody.info kms.lotro.cc kms.luochenzhimu.com kms8.MSGuides.com kms9.MSGuides.com
-
-
 
 
 
