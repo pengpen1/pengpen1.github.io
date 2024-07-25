@@ -1,5 +1,5 @@
 ---
-title: 封装电池组件
+title: 批量上传方案
 date: 2024-07-22 13:17:00
 tags: vue
 categories: vue
