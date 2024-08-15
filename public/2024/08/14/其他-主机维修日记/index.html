@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>主机维修日记 | blog-coderpeng</title><meta name="author" content="coderpeng"><meta name="copyright" content="coderpeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文主要是记录一下我电脑出的故障以及如何解决的。阅读时长：8min。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="主机维修日记">
+<meta property="og:url" content="https://pengpen1.github.io/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/index.html">
+<meta property="og:site_name" content="blog-coderpeng">
+<meta property="og:description" content="本文主要是记录一下我电脑出的故障以及如何解决的。阅读时长：8min。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/DRAM%E7%81%AF.jpg">
+<meta property="article:published_time" content="2024-08-14T01:32:00.000Z">
+<meta property="article:modified_time" content="2024-08-14T02:35:19.712Z">
+<meta property="article:author" content="coderpeng">
+<meta property="article:tag" content="其他">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/DRAM%E7%81%AF.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pengpen1.github.io/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '主机维修日记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-14 10:35:19'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png')"><nav id="nav"><span id="blog-info"><a href="/" title="blog-coderpeng"><span class="site-name">blog-coderpeng</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">主机维修日记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-14T01:32:00.000Z" title="发表于 2024-08-14 09:32:00">2024-08-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-14T02:35:19.712Z" title="更新于 2024-08-14 10:35:19">2024-08-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="主机维修日记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>概要：</strong>本文主要是记录一下我电脑出的故障以及如何解决的。</p>
+<h2 id="一、维修日记"><a href="#一、维修日记" class="headerlink" title="一、维修日记"></a>一、维修日记</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>我是在一次很正常的重启中突然出现这个问题的，主机亮灯，显示器黑屏(有信号连接，可以听到开启动画声音)，键鼠正常亮灯，主板故障灯中的AVG亮了会儿白灯。</p>
+<p>时间：2024&#x2F;8&#x2F;11</p>
+<img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/AVG%E7%81%AF.jpg"  width="100%" height="600" style="object-fit: cover;" />
+
+
+
+<h3 id="主机配置"><a href="#主机配置" class="headerlink" title="主机配置"></a>主机配置</h3><ul>
+<li>cpu：i5 12400F</li>
+<li>主板：微星PRO H610M-E D4</li>
+<li>显卡：影驰 RTX4060金属大师OC 8C</li>
+<li>电源：先马 500w</li>
+<li>内存：宇瞻 3200HZ *2 (共16G)</li>
+</ul>
+<h3 id="操作日志"><a href="#操作日志" class="headerlink" title="操作日志"></a>操作日志</h3><p><strong>day1</strong></p>
+<p>1.尝试重启了几次，无效果，处于黑屏状态，但是可以听到开机启动的声音</p>
+<p>2.插拔了显卡以及显示器电源线，把机械硬盘下了，还是处于黑屏状态</p>
+<p>3.取下显卡，内存条，用酒精擦拭接口后重新安装，仍然处于黑屏状态</p>
+<p><strong>day2</strong></p>
+<p>1.开机时，按Del键，成功进入BIOS界面，随后按F10保存设置，然后回车进行重启，仍然处于黑屏状态，同样可以听到开机启动的声音</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/BIOS.jpg"></p>
+<p><strong>day3</strong></p>
+<p>1.交换单内存开机，其中一个(sn尾号0775)位于右侧插槽时主板自检未通过，DRAM灯显示黄灯，并且常亮</p>
+<p>2.使用sn尾号为0776的内存单独插入右侧卡槽，主板自检未通过，当前判断为右层侧卡槽有问题</p>
+<p>3.两个内存都插入插入，DRAM依然常亮，可能是我把插槽搞坏了或者插拔字数过多导致主板开启了硬件保护机制</p>
+<img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/DRAM%E7%81%AF.jpg"  width="100%" height="600" style="object-fit: cover;" />
+
+<p><strong>day4</strong></p>
+<p>1.新购入了1.4版本的DP线，待测试</p>
+<h2 id="二、其他知识"><a href="#二、其他知识" class="headerlink" title="二、其他知识"></a>二、其他知识</h2><h3 id="DP1-2和DP1-4区别"><a href="#DP1-2和DP1-4区别" class="headerlink" title="DP1.2和DP1.4区别"></a>DP1.2和DP1.4区别</h3><p>1、输出分辨率不同：DP线1.4支持4K，60-240H在，最高支持8K，60Hz；DP线1.2最高支持4K，60-100Hz。</p>
+<p>2、带宽不同：DP线1.4最高支持带宽是32.4gbps；DP线1.2最高支持带宽是21.6gbps。</p>
+<p>3、技术不同：DP线1.4支持10 bit图像传送，HDR动态图像传送，能够更好的反映出真实环境的视觉效果。支持开启G-SYNC和Freeync技术，能够解决因高频率刷新而产生的撕裂和卡断问题。</p>
+<h3 id="开机不停重启（不显示界面）"><a href="#开机不停重启（不显示界面）" class="headerlink" title="开机不停重启（不显示界面）"></a>开机不停重启（不显示界面）</h3><p>1、内存条松动（取下来擦金手指重新插上）</p>
+<p>2、主板坏了需要更换（这个直接排除法就是找一块同样的主板换上看是否能开机，一般情况下自己都只有一台电脑，所以需要把内存条及显卡等硬件换到另外一台电脑上看是否能开机）</p>
+<p>3、显卡问题（取下显卡擦金手指，把显卡换到另外一台电脑上看是否能正常开机，换一块新显卡到老电脑上看是否能开机）</p>
+<p>4、电源问题（拿一个新电源看是否能正常开机）<br>这里提一下，遇到这种不显示的情况肯定不是硬盘问题！硬盘问题是能显示可以进bios的。<br>99%也不是CPU问题，一般CPU不会坏，只有性能不够用了。除非你自己超频超坏的，正常用突然无法开机是绝大多数不是CPU坏了。不可能是电池没电了。电池没电了是无法记忆BIOS设置，至少是能显示的。</p>
+<h3 id="社工库"><a href="#社工库" class="headerlink" title="社工库"></a>社工库</h3><p>与本文无关，只此记录一二，AISGK、落日社工库、星盾、Helloworld 花花社工库。</p>
+<h3 id="网口指示灯"><a href="#网口指示灯" class="headerlink" title="网口指示灯"></a>网口指示灯</h3><p>网口指示灯可以告诉我们：网线是否已连接 &#x2F; 该WAN和LAN端口上是否有数据活动 &#x2F; 网口是否在工作 &#x2F; 此时网络连接的速度 &#x2F; 是否有东西影响了网络连接的速度……</p>
+<img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/%E7%BD%91%E5%8D%A1%E6%8F%90%E7%A4%BA%E7%81%AF.jpg"  width="100%" height="600" style="object-fit: cover;" />
+
+<p>1.无光：</p>
+<p>在网卡或路由器网口上看到无光，意义是不言自明的，没有建立起网络连接。要么是网线没有插好，水晶头断线或网线断线，要么是端口没有电。</p>
+<p>在这种情况下，你应该尝试用第二条可以正常使用的网线来测试连接，观察网络端口上的灯的颜色是否发生变化。</p>
+<p>如果这不起作用，那么可能是主板&#x2F;路由器的问题，但在此之前，请重新启动一次计算机或者路由器再试试。</p>
+<p>注意：有些主板在速度低于10Mbps时不显示灯光；如果你的主板是这种情况，那么你的以太网端口就没有问题了。</p>
+<p>2.常亮灯：</p>
+<p>网口上的实心灯表示电缆已正确插入，并与计算机建立了连接，可以进行通信。</p>
+<p>3.闪烁的灯：</p>
+<p>如果你的以太网端口上的灯闪烁，表明数据正在通过网线传输。如上图，左侧的黄灯就一直在闪烁。</p>
+<p>当有一个活跃的连接，并且正在发送或接收数据包时，该灯会闪烁。因此，如果你看到灯在闪烁，这是正常的，表明网络连接良好。</p>
+<p>4.不同颜色灯的含义（不同主板或有不同需要）：</p>
+<p>绿色：实际上是网口上最常见的颜色。它表示连接良好，并且数据包正在以平均速度传输或接收。具体速率可能因品牌而异，但通常在快速以太网的10&#x2F;100Mbps范围内或千兆以太网的100Mbps范围内。</p>
+<p>黄色：这种颜色出现在网口上，表示连接速度较慢。连接仍然建立，数据包正在以比可能的速度更慢的速度传输或接收。如果您的主板上是支持千兆的网卡，但路由器仅支持100Mbps，则LED灯将变为黄色而不是绿色。</p>
+<p>橙色：这种颜色出现在真正高级的以太网口上，用于指示1到10Gbps的连接。这是最高可能的连接速度，仅在最昂贵的主板网络设备上可用。</p>
+<p>红色：以太网口上的红色灯表示没有连接。当连接在连接的设备之间暂停或禁用，或者网络连接存在其他问题时，就会发生这种情况。在任何情况下，如果您看到红色灯，请运行Windows故障排除程序以修复此错误，重新启动计算机，并检查问题是否仍然存在。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240814103114.png"></p>
+<p>例如：上图为微星主板，左侧黄灯闪烁，橙灯常亮，我们可以得出，当前链接正常，为千兆网口</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://pengpen1.github.io">coderpeng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://pengpen1.github.io/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/">https://pengpen1.github.io/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://pengpen1.github.io" target="_blank">blog-coderpeng</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%85%B6%E4%BB%96/">其他</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/DRAM%E7%81%AF.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/atlas-1052011_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">BFC解决弹性盒子宽度响应式问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/01/21/%E5%85%B6%E4%BB%96-%E5%A6%82%E4%BD%95%E8%AE%A9%E4%BD%A0%E7%9A%84%E7%BB%88%E7%AB%AF%E6%9B%B4%E5%A5%BD%E7%94%A8/" title="如何让你的终端更好用"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/mountain-8310076_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-21</div><div class="title">如何让你的终端更好用</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">coderpeng</div><div class="author-info__description">当时年少掷春光，花马踏蹄酒溅香</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pengpen1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/pengpen1" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:coderpengfq@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">挚友，工作并非是生活的全部，思想是锁住我们的枷锁。欢迎莅临吾之微观天地，共赏知识之盛宴。以下是本人在其他社交平台的账号： <div class="social-button"> <a class="button--animated" href="https://blog.csdn.net/masierty?spm=1010.2135.3001.5343" rel="external nofollow noreferrer" target="_blank">CSDN @轻盈的风</a> <span> | </span> <a class="button--animated" href="https://juejin.cn/user/853662760436845" rel="external nofollow noreferrer" target="_blank">掘金 @轻盈的风</a> </div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">一、维修日记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">主机配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%97%A5%E5%BF%97"><span class="toc-number">1.3.</span> <span class="toc-text">操作日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%B6%E4%BB%96%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text">二、其他知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DP1-2%E5%92%8CDP1-4%E5%8C%BA%E5%88%AB"><span class="toc-number">2.1.</span> <span class="toc-text">DP1.2和DP1.4区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E4%B8%8D%E5%81%9C%E9%87%8D%E5%90%AF%EF%BC%88%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%95%8C%E9%9D%A2%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">开机不停重启（不显示界面）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E5%B7%A5%E5%BA%93"><span class="toc-number">2.3.</span> <span class="toc-text">社工库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E5%8F%A3%E6%8C%87%E7%A4%BA%E7%81%AF"><span class="toc-number">2.4.</span> <span class="toc-text">网口指示灯</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/" title="主机维修日记"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/DRAM%E7%81%AF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="主机维修日记"/></a><div class="content"><a class="title" href="/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/" title="主机维修日记">主机维修日记</a><time datetime="2024-08-14T01:32:00.000Z" title="发表于 2024-08-14 09:32:00">2024-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/atlas-1052011_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BFC解决弹性盒子宽度响应式问题"/></a><div class="content"><a class="title" href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题">BFC解决弹性盒子宽度响应式问题</a><time datetime="2024-08-06T03:24:00.000Z" title="发表于 2024-08-06 11:24:00">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E8%AF%B7%E6%B1%82%E4%B8%AD%E7%9A%84MIME%E7%B1%BB%E5%9E%8B/" title="请求中的MIME类型"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/drink-3025022_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="请求中的MIME类型"/></a><div class="content"><a class="title" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E8%AF%B7%E6%B1%82%E4%B8%AD%E7%9A%84MIME%E7%B1%BB%E5%9E%8B/" title="请求中的MIME类型">请求中的MIME类型</a><time datetime="2024-07-25T07:03:00.000Z" title="发表于 2024-07-25 15:03:00">2024-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E5%A4%8F%E6%B4%9B%E5%85%8B%E6%BC%94%E7%BB%8E%E6%B3%95/" title="夏洛克演绎法"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240725133846.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="夏洛克演绎法"/></a><div class="content"><a class="title" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E5%A4%8F%E6%B4%9B%E5%85%8B%E6%BC%94%E7%BB%8E%E6%B3%95/" title="夏洛克演绎法">夏洛克演绎法</a><time datetime="2024-07-25T06:40:00.000Z" title="发表于 2024-07-25 14:40:00">2024-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/22/vue-%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88/" title="批量上传方案"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/books-2596809_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="批量上传方案"/></a><div class="content"><a class="title" href="/2024/07/22/vue-%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88/" title="批量上传方案">批量上传方案</a><time datetime="2024-07-22T05:17:00.000Z" title="发表于 2024-07-22 13:17:00">2024-07-22</time></div></div></div></div></div></div></main><footer id="footer" style="background: #2b87b1"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By coderpeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'pengpen1/blog-utterances')
+    ele.setAttribute('issue-term', 'pathname')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !false) {
+    if (false) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

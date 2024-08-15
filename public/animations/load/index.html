@@ -1,0 +1,588 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>加载动画 | blog-coderpeng</title><meta name="author" content="coderpeng"><meta name="copyright" content="coderpeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="load            body {         margin: 0;       }       .wrap {         position: relative;         width: 100%;         padding: 10px 40px;         background-color: #1d2630;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="加载动画">
+<meta property="og:url" content="https://pengpen1.github.io/animations/load/index.html">
+<meta property="og:site_name" content="blog-coderpeng">
+<meta property="og:description" content="load            body {         margin: 0;       }       .wrap {         position: relative;         width: 100%;         padding: 10px 40px;         background-color: #1d2630;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-05-21T05:26:00.000Z">
+<meta property="article:modified_time" content="2024-05-21T05:59:25.255Z">
+<meta property="article:author" content="coderpeng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pengpen1.github.io/animations/load/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '加载动画',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-05-21 13:59:25'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="blog-coderpeng"><span class="site-name">blog-coderpeng</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout hide-aside" id="content-inner"><div id="page"><h1 class="page-title">加载动画</h1><div id="article-container">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>load</title>
+    <style type="text/css">
+      body {
+        margin: 0;
+      }
+      .wrap {
+        position: relative;
+        width: 100%;
+        padding: 10px 40px;
+        background-color: #1d2630;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+      /* KEYFRAMES */
+
+      @keyframes spin {
+        from {
+          transform: rotate(0);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+
+      @keyframes spin3D {
+        from {
+          transform: rotate3d(0.5, 0.5, 0.5, 360deg);
+        }
+        to {
+          transform: rotate3d(0deg);
+        }
+      }
+
+      @keyframes configure-clockwise {
+        0% {
+          transform: rotate(0);
+        }
+        25% {
+          transform: rotate(90deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        75% {
+          transform: rotate(270deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes configure-xclockwise {
+        0% {
+          transform: rotate(45deg);
+        }
+        25% {
+          transform: rotate(-45deg);
+        }
+        50% {
+          transform: rotate(-135deg);
+        }
+        75% {
+          transform: rotate(-225deg);
+        }
+        100% {
+          transform: rotate(-315deg);
+        }
+      }
+
+      @keyframes pulse {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0.25;
+          transform: scale(0.75);
+        }
+      }
+
+      /* GRID STYLING */
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .spinner-box {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+      }
+
+      /* SPINNING CIRCLE */
+
+      .leo-border-1 {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: rgb(63, 249, 220);
+        background: linear-gradient(
+          0deg,
+          rgba(63, 249, 220, 0.1) 33%,
+          rgba(63, 249, 220, 1) 100%
+        );
+        animation: spin3D 1.8s linear 0s infinite;
+      }
+
+      .leo-core-1 {
+        width: 100%;
+        height: 100%;
+        background-color: #37474faa;
+        border-radius: 50%;
+      }
+
+      .leo-border-2 {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: rgb(251, 91, 83);
+        background: linear-gradient(
+          0deg,
+          rgba(251, 91, 83, 0.1) 33%,
+          rgba(251, 91, 83, 1) 100%
+        );
+        animation: spin3D 2.2s linear 0s infinite;
+      }
+
+      .leo-core-2 {
+        width: 100%;
+        height: 100%;
+        background-color: #1d2630aa;
+        border-radius: 50%;
+      }
+
+      /* ALTERNATING ORBITS */
+
+      .circle-border {
+        width: 150px;
+        height: 150px;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: rgb(63, 249, 220);
+        background: linear-gradient(
+          0deg,
+          rgba(63, 249, 220, 0.1) 33%,
+          rgba(63, 249, 220, 1) 100%
+        );
+        animation: spin 0.8s linear 0s infinite;
+      }
+
+      .circle-core {
+        width: 100%;
+        height: 100%;
+        background-color: #1d2630;
+        border-radius: 50%;
+      }
+
+      /* X-ROTATING BOXES */
+
+      .configure-border-1 {
+        width: 115px;
+        height: 115px;
+        padding: 3px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fb5b53;
+        animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+      }
+
+      .configure-border-2 {
+        width: 115px;
+        height: 115px;
+        padding: 3px;
+        left: -115px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(63, 249, 220);
+        transform: rotate(45deg);
+        animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
+      }
+
+      .configure-core {
+        width: 100%;
+        height: 100%;
+        background-color: #1d2630;
+      }
+
+      /* PULSE BUBBLES */
+
+      .pulse-container {
+        width: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .pulse-bubble {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #3ff9dc;
+      }
+
+      .pulse-bubble-1 {
+        animation: pulse 0.4s ease 0s infinite alternate;
+      }
+      .pulse-bubble-2 {
+        animation: pulse 0.4s ease 0.2s infinite alternate;
+      }
+      .pulse-bubble-3 {
+        animation: pulse 0.4s ease 0.4s infinite alternate;
+      }
+
+      /* SOLAR SYSTEM */
+
+      .solar-system {
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .orbit {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #fafbfc;
+        border-radius: 50%;
+      }
+
+      .earth-orbit {
+        width: 165px;
+        height: 165px;
+        animation: spin 12s linear 0s infinite;
+      }
+
+      .venus-orbit {
+        width: 120px;
+        height: 120px;
+        animation: spin 7.4s linear 0s infinite;
+      }
+
+      .mercury-orbit {
+        width: 90px;
+        height: 90px;
+        animation: spin 3s linear 0s infinite;
+      }
+
+      .planet {
+        position: absolute;
+        top: -5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #3ff9dc;
+      }
+
+      .sun {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: #ffab91;
+      }
+
+      .leo {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+
+      .blue-orbit {
+        width: 165px;
+        height: 165px;
+        border: 1px solid #91daffa5;
+        animation: spin3D 3s linear 0.2s infinite;
+      }
+
+      .green-orbit {
+        width: 120px;
+        height: 120px;
+        border: 1px solid #91ffbfa5;
+        animation: spin3D 2s linear 0s infinite;
+      }
+
+      .red-orbit {
+        width: 90px;
+        height: 90px;
+        border: 1px solid #ffca91a5;
+        animation: spin3D 1s linear 0s infinite;
+      }
+
+      .white-orbit {
+        width: 60px;
+        height: 60px;
+        border: 2px solid #ffffff;
+        animation: spin3D 10s linear 0s infinite;
+      }
+
+      .w1 {
+        transform: rotate3D(1, 1, 1, 90deg);
+      }
+
+      .w2 {
+        transform: rotate3D(1, 2, 0.5, 90deg);
+      }
+
+      .w3 {
+        transform: rotate3D(0.5, 1, 2, 90deg);
+      }
+
+      .three-quarter-spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid #fb5b53;
+        border-top: 3px solid transparent;
+        border-radius: 50%;
+        animation: spin 0.5s linear 0s infinite;
+      }
+    </style>
+    <link href="" rel="stylesheet" />
+  </head>
+  <body>
+    <p>project from： <a target="_blank" rel="noopener" href="https://codepen.io/AlexWarnes/pen/jXYYKL">codepen</a></p>
+
+    <div class="wrap">
+      <!-- GRADIENT SPINNER -->
+      <div class="spinner-box">
+        <div class="circle-border">
+          <div class="circle-core"></div>
+        </div>
+      </div>
+
+      <!-- SPINNER ORBITS -->
+      <div class="spinner-box">
+        <div class="blue-orbit leo"></div>
+
+        <div class="green-orbit leo"></div>
+
+        <div class="red-orbit leo"></div>
+
+        <div class="white-orbit w1 leo"></div>
+        <div class="white-orbit w2 leo"></div>
+        <div class="white-orbit w3 leo"></div>
+      </div>
+
+      <!-- GRADIENT CIRCLE PLANES -->
+      <div class="spinner-box">
+        <div class="leo-border-1">
+          <div class="leo-core-1"></div>
+        </div>
+        <div class="leo-border-2">
+          <div class="leo-core-2"></div>
+        </div>
+      </div>
+
+      <!-- SPINNING SQUARES -->
+      <div class="spinner-box">
+        <div class="configure-border-1">
+          <div class="configure-core"></div>
+        </div>
+        <div class="configure-border-2">
+          <div class="configure-core"></div>
+        </div>
+      </div>
+
+      <!-- LOADING DOTS... -->
+      <div class="spinner-box">
+        <div class="pulse-container">
+          <div class="pulse-bubble pulse-bubble-1"></div>
+          <div class="pulse-bubble pulse-bubble-2"></div>
+          <div class="pulse-bubble pulse-bubble-3"></div>
+        </div>
+      </div>
+
+      <!-- SOLAR SYSTEM -->
+      <div class="spinner-box">
+        <div class="solar-system">
+          <div class="earth-orbit orbit">
+            <div class="planet earth"></div>
+            <div class="venus-orbit orbit">
+              <div class="planet venus"></div>
+              <div class="mercury-orbit orbit">
+                <div class="planet mercury"></div>
+                <div class="sun"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three Quarter Spinner -->
+
+      <div class="spinner-box">
+        <div class="three-quarter-spinner"></div>
+      </div>
+    </div>
+  </body>
+</html>
+</div></div></main><footer id="footer" style="background: #2b87b1"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By coderpeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

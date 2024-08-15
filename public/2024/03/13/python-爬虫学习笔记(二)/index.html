@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>爬虫学习笔记(二) | blog-coderpeng</title><meta name="author" content="coderpeng"><meta name="copyright" content="coderpeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="笔者学习python爬虫的第二篇笔记，主要内容是安装python、hello, worl、学习解释型语言的编译过程。阅读时长：7min。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫学习笔记(二)">
+<meta property="og:url" content="https://pengpen1.github.io/2024/03/13/python-%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/index.html">
+<meta property="og:site_name" content="blog-coderpeng">
+<meta property="og:description" content="笔者学习python爬虫的第二篇笔记，主要内容是安装python、hello, worl、学习解释型语言的编译过程。阅读时长：7min。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/book-794978_1280.jpg">
+<meta property="article:published_time" content="2024-03-13T07:46:00.000Z">
+<meta property="article:modified_time" content="2024-03-13T09:25:47.014Z">
+<meta property="article:author" content="coderpeng">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/book-794978_1280.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pengpen1.github.io/2024/03/13/python-%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '爬虫学习笔记(二)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-13 17:25:47'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png')"><nav id="nav"><span id="blog-info"><a href="/" title="blog-coderpeng"><span class="site-name">blog-coderpeng</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">爬虫学习笔记(二)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-13T07:46:00.000Z" title="发表于 2024-03-13 15:46:00">2024-03-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-13T09:25:47.014Z" title="更新于 2024-03-13 17:25:47">2024-03-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/python/">python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="爬虫学习笔记(二)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>概要：</strong>在这篇记录中，我们将安装Python以及写出第一个python程序。</p>
+<h3 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h3><p>笔者安装的是3.12.2版本的Python，[download](<a target="_blank" rel="noopener" href="https://www.python.org/downloads/release/python-3122/">Python Release Python 3.12.2 | Python.org</a>)，下拉到最后Files，我是windows系统所以选择的<a target="_blank" rel="noopener" href="https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe">Windows installer (64-bit)</a>，大家按照自己的需要下载就好，记得在安装时需要勾选<code>Add Python 3.5 to PATH</code>哦，这是将Python解释器的安装路径添加到系统的环境变量中。（环境变量是操作系统中用来指示系统在执行命令时查找程序文件的路径之一。添加Python到PATH中使得你可以在命令行或者终端中直接通过输入“python”命令来调用Python解释器，而不需要输入完整的Python安装路径。这样做有助于方便地在命令行中使用Python。）</p>
+<p>另外Python解释器不是只有官方的这一种，CPython（用C语言开发的），还有IPython、Jython、PyPy等等。这些解释器可以帮助我们运行以<code>.py</code>为扩展名的文本文件。</p>
+<p>Python是解释型语言，需要翻译成CPU能理解的机器码，才能运行。</p>
+<h3 id="交互环境"><a href="#交互环境" class="headerlink" title="交互环境"></a>交互环境</h3><p>在命令行，敲入python，如果出现&gt;&gt;&gt;，说明你安装成功了，我们已经在python交互环境中了，输入任何Python代码，回车后会立刻得到执行结果。输入<code>exit()</code>并回车，就可以退出Python交互式环境（直接关掉命令行窗口也可以）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240312173847.png"></p>
+<p>来输入我们的经典程序吧：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello, world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>到这里就先停手了，学习一门语言，不能光记语法，而是要先思考这个语言解决了什么问题？它能带给你什么帮助？之后再去一步步学习</p>
+<p>荷兰的计算机程序员吉多·范罗苏姆（Guido Van Rossum）创建了 Python。他于 1989 年在荷兰国家数学与计算机科学研究中心 (CWI) 开启了 Python 之旅，最初只是为在圣诞节期间能保持依旧忙碌的业余爱好。语言的名字受 BBC 电视剧《巨蟒剧团之飞翔的马戏团》的启发，因为吉多·范罗苏姆是该剧的忠实粉丝。 </p>
+<ul>
+<li>1991 年发布了首版 Python 代码（版本 0.9.0）。其已包括一些优秀功能，例如一些用于错误处理的数据类型和函数。 </li>
+<li>Python 1.0 于 1994 年发布，提供轻松处理数据列表的新函数，例如映射、筛选和减少。</li>
+<li>Python 2.0 于 2000 年 10 月 16 日发布，为程序员提供新的有用功能，例如支持 Unicode 字符和以较短方式遍历列表。</li>
+<li>Python 3.0 于 2008 年 12 月 3 日发布。其包括更多功能，例如打印函数，为数字除法和错误处理提供更多支持。</li>
+</ul>
+<p>Python语法简洁清晰，易于学习和理解且跨平台，拥有丰富的标准库和第三方库，可以在数据科学和机器学习、软件开发、软件测试自动化自动化（<strong>Python 单元测试框架例如 Unittest、Robot 和 PyUnit，测试其编写的函数；可以使用多种工具自动运行测试脚本。这些工具称为持续集成&#x2F;持续部署 (CI&#x2F;CD) 工具。软件测试人员和开发人员使用 CI&#x2F;CD 工具（例如 Travis CI 和 Jenkins）自动化测试</strong>）等方面提供巨大的助力。</p>
+<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><p> 在具体计算机上实现一种语言，首先要确定的是表示该语言语义解释的虚拟计算机，一个关键的问题是程序执行时的基本表示是实际计算机上的机器语言还是虚拟机的机器语言。这个问题决定了语言的实现。根据这个问题的回答，可以将程序设计语言划分为两大类：编译型语言和解释型语言。</p>
+<ul>
+<li>编译实现的语言，如：C、C++、Fortran、Pascal、Ada。由编译型语言编写的源程序需要经过编译,汇编和链接才能输出目标代码，然后由机器执行目标代码。目标代码是有机器指令组成，不能独立运行，因为源程序中可能使用了一些汇编程序不能解释引用的库函数，而库函数又不在源程序中，此时还需要链接程序完成外部引用和目标模板调用的链接任务，最后才能输出可执行代码。</li>
+<li>解释型语言，解释器不产生目标机器代码，而是产生中间代码，这种中间代码与机器代码不同，中间代码的解释是由软件支持的，不能直接使用在硬件上。该软件解释器通常会导致执行效率较低，用解释型语言编写的程序是由另一个可以理解中间代码的解释程序执行的。和编译的程序不同的是, 解释程序的任务是逐一将源代码的语句解释成可执行的机器指令，不需要将源程序翻译成目标代码再执行。对于解释型语言，需要一个专门的解释器来执行该程序，每条语句只有在执行是才能被翻译，这种解释型语言每执行一次就翻译一次，因而效率低下。</li>
+</ul>
+<p>Python就是一门解释型语言，和我们熟知的JavaScript一样，都需要先将源代码转换成中间表示形式（字节码或），然后执行这些中间表示形式来完成程序的功能。但不同的是，Python的字节码是在运行时即时生成的，而JavaScript的字节码（如果是基于V8引擎的话）通常是预先编译好的。现在我们来看看，编译模型和具体的编译流程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240313151206.png"></p>
+<p>处理器主要由三部分组成: 编译器(Compiler)，运行时(Runtime)，库(Lib)。</p>
+<ul>
+<li>编译器(Compiler): 顾名思义，就是编译源码的程序。通常情况下，它会将源码编译成运行时(Runtime)识别的中间码，但是在极端情况下，如 C 中，因为没有运行时(Runtime)，就直接输出机器码了。编译器(Compiler)在这过程中可能还会自己对源码进行优化，并剔除一些运行不必要的信息，比如注释等。</li>
+<li>运行时程序(Runtime): 这个程序用于代码的具体执行，最被熟知的是 JVM，所以也可以把它叫做虚拟机好了，Python中对应的虚拟机就是CPython、PyPy、Jython等。</li>
+<li>库(Lib): 库很好理解，就好比一个词典，运行这个程序所需要的一些额外支持。最基础的，标准库应该包含基本的 IO 库，如 <code>stdio.h</code>，还有平台所提供的系统调用等等。</li>
+</ul>
+<p>下面是完整的编译过程</p>
+<ol>
+<li>将源代码进行词法分析和语法分析，将代码分解为标记（tokens）并形成抽象语法树(Abstract Syntax Tree)</li>
+<li>将抽象语法树转换为字节码(bytecode) </li>
+<li>将字节码(bytecode) 发送给虚拟机，虚拟机将字节码翻译成机器码并在CPU上执行</li>
+</ol>
+<p>字节码是相对于机器码的存在。机器码是 CPU 能读懂的机器指令，所有指令都包含在一个指令集里面，那字节码就是虚拟机能理解的指令。</p>
+<p>虚拟机不是KVM，VMware 虚拟机，指的是在软件层面模拟了 CPU 执行逻辑的程序。用于解析程序指令。</p>
+<h3 id="疑问解答"><a href="#疑问解答" class="headerlink" title="疑问解答"></a>疑问解答</h3><p><strong>1.Python和JavaScript有什么不同呢？</strong></p>
+<ol>
+<li><strong>用途</strong>：<ul>
+<li>Python通常用于后端开发（如Web开发、数据分析、人工智能等）、科学计算、系统管理等领域。</li>
+<li>JavaScript则主要用于前端开发，用于网页交互、动态内容生成、浏览器扩展等，但也可以在后端使用Node.js进行服务器端开发。</li>
+</ul>
+</li>
+<li><strong>语法</strong>：<ul>
+<li>Python采用了缩进来表示代码块的结构，而JavaScript使用花括号{}。</li>
+<li>Python更加强调代码的可读性和简洁性，语法相对简单直观。</li>
+<li>JavaScript的语法更加灵活，支持面向对象、函数式编程等多种编程范式。</li>
+</ul>
+</li>
+<li><strong>类型系统</strong>：<ul>
+<li>Python是动态类型语言，变量的类型在运行时根据赋值确定，并且支持强类型和弱类型的混合。</li>
+<li>JavaScript也是动态类型语言，但有时会表现出一些隐式类型转换的特性，使得一些类型判断相对复杂。</li>
+</ul>
+</li>
+<li><strong>并发模型</strong>：<ul>
+<li>Python的并发模型主要是基于多线程和多进程，但由于GIL（全局解释器锁）的存在，多线程并发性能有限。</li>
+<li>JavaScript的并发模型主要基于事件驱动和回调函数，通过异步编程来实现并发，也支持Promise和async&#x2F;await等新的语言特性来简化异步编程。</li>
+</ul>
+</li>
+<li><strong>生态系统</strong>：<ul>
+<li>Python拥有丰富的第三方库和框架，如Django、Flask、NumPy、Pandas等，适用于各种不同的应用场景。</li>
+<li>JavaScript的生态系统也非常庞大，特别是在前端开发领域，有很多优秀的框架和工具，如React、Vue.js、Angular等。</li>
+</ul>
+</li>
+</ol>
+<p><strong>2.有推荐的Python插件吗？</strong></p>
+<p>笔者用的vscdoe，目前安装了下面几个插件</p>
+<p>美化插件：Black Formatter</p>
+<p>debug插件：Python Debugger</p>
+<p>语法提示插件：Python</p>
+<p>静态检查插件：Pylance</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://00kai0.github.io/cpy-compile-and-runtime/">Python 从源码到执行</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/helloxiaozhe/article/details/78104975">python编译过程和执行原理</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://pengpen1.github.io">coderpeng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://pengpen1.github.io/2024/03/13/python-%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">https://pengpen1.github.io/2024/03/13/python-%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://pengpen1.github.io" target="_blank">blog-coderpeng</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/book-794978_1280.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/15/python-%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)/" title="爬虫学习笔记(三)"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/old-books-436498_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">爬虫学习笔记(三)</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/11/%E5%85%B6%E4%BB%96-%E4%BA%94%E4%B8%80%E9%AA%91%E8%A1%8C%E8%AE%A1%E5%88%92/" title="五一骑行计划"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/bicycle-5166751_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">五一骑行计划</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/03/05/python-%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" title="爬虫学习笔记(一)"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/forest-6631518_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-05</div><div class="title">爬虫学习笔记(一)</div></div></a></div><div><a href="/2024/03/15/python-%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)/" title="爬虫学习笔记(三)"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/old-books-436498_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-15</div><div class="title">爬虫学习笔记(三)</div></div></a></div><div><a href="/2024/03/18/python-%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)/" title="爬虫学习笔记(四)"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/bible-2110439_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-18</div><div class="title">爬虫学习笔记(四)</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">coderpeng</div><div class="author-info__description">当时年少掷春光，花马踏蹄酒溅香</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pengpen1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/pengpen1" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:coderpengfq@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">挚友，工作并非是生活的全部，思想是锁住我们的枷锁。欢迎莅临吾之微观天地，共赏知识之盛宴。以下是本人在其他社交平台的账号： <div class="social-button"> <a class="button--animated" href="https://blog.csdn.net/masierty?spm=1010.2135.3001.5343" rel="external nofollow noreferrer" target="_blank">CSDN @轻盈的风</a> <span> | </span> <a class="button--animated" href="https://juejin.cn/user/853662760436845" rel="external nofollow noreferrer" target="_blank">掘金 @轻盈的风</a> </div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85python"><span class="toc-number">1.</span> <span class="toc-text">安装python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">交互环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">编译过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%96%91%E9%97%AE%E8%A7%A3%E7%AD%94"><span class="toc-number">4.</span> <span class="toc-text">疑问解答</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/" title="主机维修日记"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/DRAM%E7%81%AF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="主机维修日记"/></a><div class="content"><a class="title" href="/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/" title="主机维修日记">主机维修日记</a><time datetime="2024-08-14T01:32:00.000Z" title="发表于 2024-08-14 09:32:00">2024-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/atlas-1052011_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BFC解决弹性盒子宽度响应式问题"/></a><div class="content"><a class="title" href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题">BFC解决弹性盒子宽度响应式问题</a><time datetime="2024-08-06T03:24:00.000Z" title="发表于 2024-08-06 11:24:00">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E8%AF%B7%E6%B1%82%E4%B8%AD%E7%9A%84MIME%E7%B1%BB%E5%9E%8B/" title="请求中的MIME类型"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/drink-3025022_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="请求中的MIME类型"/></a><div class="content"><a class="title" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E8%AF%B7%E6%B1%82%E4%B8%AD%E7%9A%84MIME%E7%B1%BB%E5%9E%8B/" title="请求中的MIME类型">请求中的MIME类型</a><time datetime="2024-07-25T07:03:00.000Z" title="发表于 2024-07-25 15:03:00">2024-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E5%A4%8F%E6%B4%9B%E5%85%8B%E6%BC%94%E7%BB%8E%E6%B3%95/" title="夏洛克演绎法"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240725133846.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="夏洛克演绎法"/></a><div class="content"><a class="title" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E5%A4%8F%E6%B4%9B%E5%85%8B%E6%BC%94%E7%BB%8E%E6%B3%95/" title="夏洛克演绎法">夏洛克演绎法</a><time datetime="2024-07-25T06:40:00.000Z" title="发表于 2024-07-25 14:40:00">2024-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/22/vue-%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88/" title="批量上传方案"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/books-2596809_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="批量上传方案"/></a><div class="content"><a class="title" href="/2024/07/22/vue-%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88/" title="批量上传方案">批量上传方案</a><time datetime="2024-07-22T05:17:00.000Z" title="发表于 2024-07-22 13:17:00">2024-07-22</time></div></div></div></div></div></div></main><footer id="footer" style="background: #2b87b1"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By coderpeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'pengpen1/blog-utterances')
+    ele.setAttribute('issue-term', 'pathname')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !false) {
+    if (false) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

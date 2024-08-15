@@ -1,0 +1,538 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>滑块 | blog-coderpeng</title><meta name="author" content="coderpeng"><meta name="copyright" content="coderpeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="slider            body {         margin: 0;       }       :root {         --primary-light: #8abdff;         --primary: #49b1f5;         --primary-dark: #3e6ff7;         --white: #f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="滑块">
+<meta property="og:url" content="https://pengpen1.github.io/animations/slider/index.html">
+<meta property="og:site_name" content="blog-coderpeng">
+<meta property="og:description" content="slider            body {         margin: 0;       }       :root {         --primary-light: #8abdff;         --primary: #49b1f5;         --primary-dark: #3e6ff7;         --white: #f">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-05-21T07:28:00.000Z">
+<meta property="article:modified_time" content="2024-05-21T08:28:47.201Z">
+<meta property="article:author" content="coderpeng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pengpen1.github.io/animations/slider/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '滑块',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-05-21 16:28:47'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="blog-coderpeng"><span class="site-name">blog-coderpeng</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout hide-aside" id="content-inner"><div id="page"><h1 class="page-title">滑块</h1><div id="article-container">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>slider</title>
+    <style type="text/css">
+      body {
+        margin: 0;
+      }
+      :root {
+        --primary-light: #8abdff;
+        --primary: #49b1f5;
+        --primary-dark: #3e6ff7;
+        --white: #ffffff;
+        --greyLight-1: #e4ebf5;
+        --greyLight-2: #c8d0e7;
+        --greyLight-3: #bec8e4;
+        --greyDark: #9baacf;
+      }
+      .center {
+        font-family: "Source Sans Pro", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      h1 {
+        font-weight: normal;
+        margin-top: 0px;
+      }
+
+      .switch {
+        display: block;
+        margin-top: 24px;
+      }
+      .switch .slider {
+        position: relative;
+        display: inline-block;
+        height: 8px;
+        width: 32px;
+        border-radius: 8px;
+        cursor: pointer;
+        background: #c5c5c5;
+        transition: all 0.2s ease;
+      }
+      .switch .slider:after {
+        background: #eeeeee;
+        position: absolute;
+        left: -8px;
+        top: -8px;
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+        content: "";
+        transition: all 0.2s ease;
+      }
+      .switch label {
+        margin-right: 7px;
+      }
+      .switch .input,
+      .switch__2 input,
+      .switch__3 input {
+        display: none;
+      }
+      .switch .input ~ .label {
+        margin-left: 8px;
+      }
+      .switch .input:checked ~ .slider:after {
+        left: 16px;
+      }
+      .switch .input:checked ~ .slider {
+        background: #fc5d9b;
+      }
+      .switch .input:checked ~ .slider:after {
+        background: #ef0460;
+      }
+
+      .switch__2,
+      .switch__3 {
+        margin-top: 25px;
+        width: 3rem;
+      }
+
+      .switch__2 label,
+      .switch__3 label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 1.5rem;
+        box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+          -0.2rem -0.2rem 0.5rem var(--white);
+        background: rgba(255, 255, 255, 0);
+        position: relative;
+        cursor: pointer;
+        border-radius: 1.6rem;
+      }
+
+      .switch__2 label::after,
+      .switch__3 label::after {
+        content: "";
+        position: absolute;
+        left: 0.4rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background: var(--greyDark);
+        transition: all 0.4s ease;
+      }
+
+      .switch__2 label::before,
+      .switch__3 label::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(
+          330deg,
+          var(--primary-dark) 0%,
+          var(--primary) 50%,
+          var(--primary-light) 100%
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      .switch__2 input:checked ~ label::before,
+      .switch__3 input:checked ~ label::before {
+        opacity: 1;
+      }
+      .switch__2 input:checked ~ label::after,
+      .switch__3 input:checked ~ label::after {
+        left: 57%;
+        background: var(--greyLight-1);
+      }
+      /* slider */
+      .slider__box {
+        width: 10rem;
+        margin-top: 25px;
+        height: 1rem;
+        cursor: pointer;
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+          inset -0.2rem -0.2rem 0.5rem var(--white);
+        border-radius: 1rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slider__btn {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background: var(--white);
+        position: absolute;
+        box-shadow: 0px 0.1rem 0.3rem 0px var(--greyLight-3);
+        z-index: 200;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slider__btn:hover ~ .slider__tooltip {
+        opacity: 1;
+      }
+      .slider__btn::after {
+        content: "";
+        position: absolute;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+          inset -0.2rem -0.2rem 0.5rem var(--white);
+      }
+      .slider__color {
+        height: 100%;
+        width: 50%;
+        position: absolute;
+        left: 0;
+        z-index: 100;
+        border-radius: inherit;
+        background: var(--primary);
+        background: linear-gradient(
+          -1deg,
+          var(--primary-dark) 0%,
+          var(--primary) 50%,
+          var(--primary-light) 100%
+        );
+      }
+      .slider__tooltip {
+        position: absolute;
+        top: 2.6rem;
+        height: 2.5rem;
+        width: 3rem;
+        border-radius: 0.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        color: var(--primary);
+        box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+          -0.2rem -0.2rem 0.5rem var(--white);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .segmented-control {
+        margin-top: 80px;
+        width: 20.4rem;
+        height: 4rem;
+        box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+          -0.2rem -0.2rem 0.5rem var(--white);
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      .segmented-control p{
+        /* 防止博客框架样式产生影响 */
+        margin: auto !important;
+      }
+      .segmented-control input {
+        display: none;
+      }
+      .segmented-control > input:checked + label {
+        transition: all 0.5s ease;
+        color: var(--primary);
+      }
+      .segmented-control__1,
+      .segmented-control__2,
+      .segmented-control__3 {
+        width: 6.8rem;
+        height: 3.6rem;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: var(--greyDark);
+        transition: all 0.5s ease;
+      }
+      .segmented-control__1:hover,
+      .segmented-control__2:hover,
+      .segmented-control__3:hover {
+        color: var(--primary);
+      }
+      .segmented-control__color {
+        position: absolute;
+        height: 3.4rem;
+        width: 6.2rem;
+        margin-left: 0.3rem;
+        border-radius: 0.8rem;
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+          inset -0.2rem -0.2rem 0.5rem var(--white);
+        pointer-events: none;
+      }
+
+      #tab-1:checked ~ .segmented-control__color {
+        transform: translateX(0);
+        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      #tab-2:checked ~ .segmented-control__color {
+        transform: translateX(6.8rem);
+        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      #tab-3:checked ~ .segmented-control__color {
+        transform: translateX(13.6rem);
+        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+    </style>
+    <link href="" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="center">
+      <h1>Programming Simulator</h1>
+
+      <div class="switch">
+        <input id="one" class="input" type="checkbox" />
+        <label for="one" class="slider"></label>
+        <label for="one" class="label">switch</label>
+      </div>
+
+      <div class="switch__2">
+        <input id="switch-2" type="checkbox" checked />
+        <label for="switch-2"></label>
+      </div>
+
+      <div class="switch__3">
+        <input id="switch-3" type="checkbox" />
+        <label for="switch-3"></label>
+      </div>
+
+      <div class="slider">
+        <div class="slider__box">
+          <span class="slider__btn" id="find"></span>
+          <span class="slider__color"></span>
+          <span class="slider__tooltip">50%</span>
+        </div>
+      </div>
+
+      <div class="segmented-control">
+        <input type="radio" name="radio2" value="3" id="tab-1" checked />
+        <label for="tab-1" class="segmented-control__1"> <p>Tab 1</p></label>
+
+        <input type="radio" name="radio2" value="4" id="tab-2" />
+        <label for="tab-2" class="segmented-control__2"> <p>Tab 2</p></label>
+
+        <input type="radio" name="radio2" value="5" id="tab-3" />
+        <label for="tab-3" class="segmented-control__3"> <p>Tab 3</p></label>
+
+        <div class="segmented-control__color"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const container = document.querySelector(".slider__box");
+    const btn = document.querySelector(".slider__btn");
+    const color = document.querySelector(".slider__color");
+    const tooltip = document.querySelector(".slider__tooltip");
+
+    dragElement = (target, btn) => {
+      target.addEventListener("mousedown", (e) => {
+        onMouseMove(e);
+        window.addEventListener("mousemove", onMouseMove);
+        window.addEventListener("mouseup", onMouseUp);
+      });
+
+      onMouseMove = (e) => {
+        e.preventDefault();
+        let targetRect = target.getBoundingClientRect();
+        let x = e.pageX - targetRect.left + 10;
+        if (x > targetRect.width) {
+          x = targetRect.width;
+        }
+        if (x < 0) {
+          x = 0;
+        }
+        btn.x = x - 10;
+        btn.style.left = btn.x + "px";
+
+        // get the position of the button inside the container (%)
+        let percentPosition = ((btn.x + 10) / targetRect.width) * 100;
+
+        // color width = position of button (%)
+        color.style.width = percentPosition + "%";
+
+        // move the tooltip when button moves, and show the tooltip
+        tooltip.style.left = btn.x - 5 + "px";
+        tooltip.style.opacity = 1;
+
+        // show the percentage in the tooltip
+        tooltip.textContent = Math.round(percentPosition) + "%";
+      };
+
+      onMouseUp = (e) => {
+        window.removeEventListener("mousemove", onMouseMove);
+        tooltip.style.opacity = 0;
+
+        btn.addEventListener("mouseover", function () {
+          tooltip.style.opacity = 1;
+        });
+
+        btn.addEventListener("mouseout", function () {
+          tooltip.style.opacity = 0;
+        });
+      };
+    };
+
+    dragElement(container, btn);
+  </script>
+</html>
+</div></div></main><footer id="footer" style="background: #2b87b1"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By coderpeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

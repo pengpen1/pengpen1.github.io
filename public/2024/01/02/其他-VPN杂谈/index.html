@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>VPN杂谈 | blog-coderpeng</title><meta name="author" content="coderpeng"><meta name="copyright" content="coderpeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文主要是探讨V2ray、reality、x-ui的使用。注：请勿用于非法用途，遵守我国相关法律。阅读时长：4min。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPN杂谈">
+<meta property="og:url" content="https://pengpen1.github.io/2024/01/02/%E5%85%B6%E4%BB%96-VPN%E6%9D%82%E8%B0%88/index.html">
+<meta property="og:site_name" content="blog-coderpeng">
+<meta property="og:description" content="本文主要是探讨V2ray、reality、x-ui的使用。注：请勿用于非法用途，遵守我国相关法律。阅读时长：4min。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132915.png">
+<meta property="article:published_time" content="2024-01-02T01:40:00.000Z">
+<meta property="article:modified_time" content="2024-02-27T03:30:59.614Z">
+<meta property="article:author" content="coderpeng">
+<meta property="article:tag" content="VPN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132915.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pengpen1.github.io/2024/01/02/%E5%85%B6%E4%BB%96-VPN%E6%9D%82%E8%B0%88/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'VPN杂谈',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-27 11:30:59'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png')"><nav id="nav"><span id="blog-info"><a href="/" title="blog-coderpeng"><span class="site-name">blog-coderpeng</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">VPN杂谈</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-02T01:40:00.000Z" title="发表于 2024-01-02 09:40:00">2024-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-27T03:30:59.614Z" title="更新于 2024-02-27 11:30:59">2024-02-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="VPN杂谈"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>概要：</strong>在这篇记录中，我们将探讨一下V2ray以及reality，最后使用x-ui以及realtiy搭建一个VPN。注：本文章仅供学习使用，遵守我国相关法律，请勿用于非法用途！</p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p><strong>1.vps的挑选</strong></p>
+<p><a target="_blank" rel="noopener" href="https://my.racknerd.com/aff.php?aff=5059&pid=792">https://my.racknerd.com/aff.php?aff=5059&amp;pid=792</a></p>
+<p><a target="_blank" rel="noopener" href="https://bwh81.net/">Mass VPS hosting on Enterprise equipment - BandwagonHost VPS (bwh81.net)</a></p>
+<p>选适合自己的就行</p>
+<p><strong>2.ssl证书</strong></p>
+<p>SSL证书是数字证书的一种，用于实现HTTPS协议，通过SSL证书，可以实现网站数据加密传输，防止数据被截获或窃取，提高网站的安全性。</p>
+<p>在获取SSL证书的过程中，<strong>需要开放80和443端口</strong>。80端口是HTTP协议的默认端口，而443端口是HTTPS协议的默认端口。如果VPS运营商开启了防火墙，并且没有放行这两个端口，那么就无法正常获取SSL证书，从而导致网站无法使用HTTPS协议进行访问。</p>
+<p>因此，在获取SSL证书之前，需要先登录VPS管理后台，放行80和443端口。如果已经拥有SSL证书，也可以上传自定义证书，以跳过申请证书这一步。</p>
+<p>同时，需要注意的是，不同的VPS运营商可能默认开启或关闭防火墙设置，因此在选择VPS运营商时需要仔细了解其服务配置，以免出现不必要的麻烦。</p>
+<p><strong>3.UDP协议和隧道</strong></p>
+<p>UDP（用户数据报协议）是一种无连接的协议，它与TCP（传输控制协议）不同，不需要进行三次握手建立连接。UDP报文头部开销小，只有8个字节，相对TCP的20字节来说，更加简单。</p>
+<p>UDP协议的特点如下：</p>
+<ol>
+<li>无连接：与TCP不同，UDP是无连接的协议，数据传输前不需要经过三次握手建立连接。</li>
+<li>面向报文：每一条UDP报文就是一份完整的报文，同时源端口和目的端口在传送数据时是需要知道的。</li>
+<li>不可靠性：UDP尽最大努力交付，但不保证可靠交付。</li>
+<li>面向无连接：UDP不需事先建立连接，因此减少了开销和发送数据的时延。</li>
+<li>头部开销小：只有8个字节的头部开销。</li>
+<li>提供面向事务的简单的不可靠信息传送服务。</li>
+<li>适用范围有限：如QQ聊天信息等。</li>
+</ol>
+<p>隧道则是一种网络通信技术，通过这种技术可以将一个网络协议的数据包封装在另一个网络协议的数据包中，以便在网络中传输。隧道可以用来解决网络安全、数据传输等问题。例如，可以通过将数据包封装在IPsec协议中来保护数据的机密性和完整性。</p>
+<h3 id="V2Ray和xray"><a href="#V2Ray和xray" class="headerlink" title="V2Ray和xray"></a>V2Ray和xray</h3><p><strong>1.V2Ray配置</strong></p>
+<p>这两个都是平台，可以挂载各种协议</p>
+<p><a target="_blank" rel="noopener" href="https://selierlin.github.io/v2ray/">前言 · V2Ray 配置指南|V2Ray 白话文教程 (selierlin.github.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://v2xtls.org/v2ray%E7%9A%84vless%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">V2ray的VLESS协议介绍和使用教程 - V2ray XTLS黑科技 (v2xtls.org)</a></p>
+<p>VMESS，即最普通的V2ray服务器，没有伪装，也不是VLESS<br>VMESS+KCP，传输协议使用mKCP，VPS线路不好时可能有奇效<br>VMESS+TCP+TLS，带伪装的V2ray，不能过CDN中转<br>VMESS+WS+TLS，即最通用的V2ray伪装方式，能过CDN中转，推荐使用<br>VLESS+KCP，传输协议使用mKCP<br>VLESS+TCP+TLS，通用的VLESS版本，不能过CDN中转，但比VMESS+TCP+TLS方式性能更好<br>VLESS+WS+TLS，基于websocket的V2ray伪装VLESS版本，能过CDN中转，有过CDN情况下推荐使用<br>VLESS+TCP+XTLS，目前最强悍的VLESS+XTLS组合，强力推荐使用（但是支持的客户端少一些）<br>trojan，轻量级的伪装协议<br>trojan+XTLS，trojan加强版，使用XTLS技术来提升性能</p>
+<p><strong>注意：</strong>目前一些客户端不支持VLESS协议，或者不支持XTLS，请按照自己的情况选择组合</p>
+<p><strong>2.V2Ray一键脚本</strong></p>
+<p>这个脚本主要用于设置和配置V2Ray，包括检查系统环境、获取公网IP地址、检测BitTorrent软件等，如何配置v2ray可自定义，支持常规VMESS协议、VMESS+websocket+TLS+Nginx、VLESS+TCP+XTLS、VLESS+TCP+TLS等多种组合，支持CentOS 7&#x2F;8、Ubuntu 16.04以上、Debian 8以上系统，以及相关衍生系统。注意如果用VMESS+WS+TLS或者VLESS系列协议，则还需一个域名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -sL https://storage.googleapis.com/tiziblog/setup.sh)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>3.Reality协议</strong></p>
+<p>我们都知道， 普通的 <code>TLS</code> 代理的一个重要弱点就是各种加密进行套娃，虽然加密包的外观让防火墙无法进行分辨，但是加密套娃无可避免的一个点就在于，它会在每个包都增加一个数据包头，那加密的层数越多，包的头也会越多，这个增量虽然不大，但这个数据可能具有某些统计学的一些特征。若是发现这个特征嘞，是的，那 <code>TLS</code> 的代理也就不太安全了。</p>
+<p>想当初，<code>RPRX</code> 发布了 <code>XTLS</code>，而 <code>XTLS</code> 其主要原因就是为了减少额外的加密，在 <code>TLS</code> 代理的特征被暴露以后，<code>Xray-core 1.8.0</code> 马上推出了新的流控 —— <code>Vision</code>，至此，当使用 <code>Vision</code> 传输 <code>TLS1.3</code> 的数据时，<code>99%</code> 的数据包，几乎拥有完美的流量特征，因为他是原始数据，没有经过任何的加工。</p>
+<p>然而在此之外，今年的三月，<code>Xray-core 1.8.0</code> 又进一步推出了 REALITY 协议来取代传统的 TLS 服务，这样可以消除服务端 TLS 的指纹特征，仍然具有前向保密性，而且证书链也是攻击无效，那这样安全性的确就超越了常规的 TLS，关键可以指向别人的网站，所以无须自己购置域名，布置证书等，而且，不必使用 VPS 的 <code>443</code> 端口，所以，的确是方便和安全了不少。甚至，在我自己长达半年的使用过程中 <code>Reality + Vision</code>，没有出现任何问题，延迟、速率也是很不错。</p>
+<h3 id="x-ui和reality"><a href="#x-ui和reality" class="headerlink" title="x-ui和reality"></a>x-ui和reality</h3><p><strong>1.安装BBR拥塞控制算法（非必须）</strong></p>
+<p>BBR的主要思想是通过测量网络的带宽和往返时间（RTT）来动态调整发送数据的速率，以最大化网络利用率并减小排队延迟。BBR试图估计网络的瓶颈带宽，并维持数据在网络中的流动，以避免拥塞。</p>
+<p>BBRplus 是对 Google BBR（Bottleneck Bandwidth and Round-trip propagation time）的一个修改版本，它旨在进一步改进拥塞控制算法，以提供更好的网络性能。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//使用不卸载内核版</span><br><span class="line">wget -N --no-check-certificate &quot;https://github.000060000.xyz/tcpx.sh&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</span><br><span class="line"></span><br><span class="line">//下面这个是我当前用的脚本</span><br><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br></pre></td></tr></table></figure>
+
+<p>脚本自动安装的锐速内核，我们选择2，安装BBRplus内核，然后会提示我们重启VPS，我们输入y进行重启。然后在一次运行上面的脚本，状态就变成了已安装BBRplus内核但是未启动，我们只需输入7即可完成BBRplus加速。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240111173321.png"></p>
+<p>要验证成功没有也简单，输入下面命令返回bbrplus即表示成功了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>2.安装x-ui</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+<p>然后是取名，设置端口，我这里是4545</p>
+<p>然后输入x-ui启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x-ui</span><br><span class="line">ctrl+c 退出查看日志状态</span><br><span class="line">firewall-cmd --zone=public --add-port=1935/tcp --permanent</span><br><span class="line">netstat -ntlp   //查看当前所有tcp端口·</span><br></pre></td></tr></table></figure>
+
+<p>这里可能遇到在页面上访问不到x-ui的情况，这是因为你的服务器没有开发对应的端口，这里教大家解决一下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld //开启防火墙</span><br><span class="line">firewall-cmd --zone=public --add-port=441/tcp --permanent //开发指定端口，这里是1935</span><br><span class="line">firewall-cmd --reload  // 重启防火墙</span><br><span class="line">netstat -ntlp   //查看当前所有tcp端口</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.添加reality</strong></p>
+<p>这里需要xray为1.8.0以上</p>
+<p>开启reality，添加用户中，flow选择xtls-rprx-vision，最后点添加即可</p>
+<p>   <img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/1704952057994.png"></p>
+<p>注意，需要检查你的vps服务器是否开了对应端口，没开的话，按照上面的步骤打开一下端口。</p>
+<p>最后把这个链接复制到小火箭或者v2RayN就可以啦。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a><strong>参考链接</strong></h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.zztongyun.com/article/%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E6%A2%AF%E5%AD%90">手把手教你如何自己搭梯子（科学上网、轻松访问油管） - 免费搭建梯子 - 实验室设备网 (zztongyun.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://inurl.top/archives/datizi/">【教程】如何搭建梯子（VPN）？-顶级索引 (inurl.top)</a></li>
+<li><a target="_blank" rel="noopener" href="https://clashxhub.com/banwagon-v2ray/">搬瓦工搭建V2ray科学上网新手指南 – Clash 官网导航 (clashxhub.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.mareep.net/posts/40290/https://artitalk.js.org/">https://blog.mareep.net/posts/40290/https://artitalk.js.org/</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://pengpen1.github.io">coderpeng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://pengpen1.github.io/2024/01/02/%E5%85%B6%E4%BB%96-VPN%E6%9D%82%E8%B0%88/">https://pengpen1.github.io/2024/01/02/%E5%85%B6%E4%BB%96-VPN%E6%9D%82%E8%B0%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://pengpen1.github.io" target="_blank">blog-coderpeng</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/VPN/">VPN</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132915.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/01/16/%E5%85%B6%E4%BB%96-%E8%A7%A3%E9%94%81%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9A%84GPT%E4%BB%A3%E7%90%86/" title="解锁移动端的GPT代理"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132922.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">解锁移动端的GPT代理</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/02/%E5%85%B6%E4%BB%96-%E8%84%9A%E6%89%8B%E6%9E%B6/" title="脚手架"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132900.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">脚手架</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/01/16/%E5%85%B6%E4%BB%96-%E8%A7%A3%E9%94%81%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9A%84GPT%E4%BB%A3%E7%90%86/" title="解锁移动端的GPT代理"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132922.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-16</div><div class="title">解锁移动端的GPT代理</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">coderpeng</div><div class="author-info__description">当时年少掷春光，花马踏蹄酒溅香</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pengpen1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/pengpen1" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:coderpengfq@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">挚友，工作并非是生活的全部，思想是锁住我们的枷锁。欢迎莅临吾之微观天地，共赏知识之盛宴。以下是本人在其他社交平台的账号： <div class="social-button"> <a class="button--animated" href="https://blog.csdn.net/masierty?spm=1010.2135.3001.5343" rel="external nofollow noreferrer" target="_blank">CSDN @轻盈的风</a> <span> | </span> <a class="button--animated" href="https://juejin.cn/user/853662760436845" rel="external nofollow noreferrer" target="_blank">掘金 @轻盈的风</a> </div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V2Ray%E5%92%8Cxray"><span class="toc-number">2.</span> <span class="toc-text">V2Ray和xray</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x-ui%E5%92%8Creality"><span class="toc-number">3.</span> <span class="toc-text">x-ui和reality</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/" title="主机维修日记"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/DRAM%E7%81%AF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="主机维修日记"/></a><div class="content"><a class="title" href="/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/" title="主机维修日记">主机维修日记</a><time datetime="2024-08-14T01:32:00.000Z" title="发表于 2024-08-14 09:32:00">2024-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/atlas-1052011_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BFC解决弹性盒子宽度响应式问题"/></a><div class="content"><a class="title" href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题">BFC解决弹性盒子宽度响应式问题</a><time datetime="2024-08-06T03:24:00.000Z" title="发表于 2024-08-06 11:24:00">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E8%AF%B7%E6%B1%82%E4%B8%AD%E7%9A%84MIME%E7%B1%BB%E5%9E%8B/" title="请求中的MIME类型"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/drink-3025022_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="请求中的MIME类型"/></a><div class="content"><a class="title" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E8%AF%B7%E6%B1%82%E4%B8%AD%E7%9A%84MIME%E7%B1%BB%E5%9E%8B/" title="请求中的MIME类型">请求中的MIME类型</a><time datetime="2024-07-25T07:03:00.000Z" title="发表于 2024-07-25 15:03:00">2024-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E5%A4%8F%E6%B4%9B%E5%85%8B%E6%BC%94%E7%BB%8E%E6%B3%95/" title="夏洛克演绎法"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240725133846.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="夏洛克演绎法"/></a><div class="content"><a class="title" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E5%A4%8F%E6%B4%9B%E5%85%8B%E6%BC%94%E7%BB%8E%E6%B3%95/" title="夏洛克演绎法">夏洛克演绎法</a><time datetime="2024-07-25T06:40:00.000Z" title="发表于 2024-07-25 14:40:00">2024-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/22/vue-%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88/" title="批量上传方案"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/books-2596809_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="批量上传方案"/></a><div class="content"><a class="title" href="/2024/07/22/vue-%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88/" title="批量上传方案">批量上传方案</a><time datetime="2024-07-22T05:17:00.000Z" title="发表于 2024-07-22 13:17:00">2024-07-22</time></div></div></div></div></div></div></main><footer id="footer" style="background: #2b87b1"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By coderpeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'pengpen1/blog-utterances')
+    ele.setAttribute('issue-term', 'pathname')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !false) {
+    if (false) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

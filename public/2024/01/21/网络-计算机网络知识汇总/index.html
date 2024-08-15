@@ -1,0 +1,352 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络知识汇总 | blog-coderpeng</title><meta name="author" content="coderpeng"><meta name="copyright" content="coderpeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文主要是带领大家学习数据是如何在网络中传输的，以及计算机网络相关的知识点。阅读时长：15min。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络知识汇总">
+<meta property="og:url" content="https://pengpen1.github.io/2024/01/21/%E7%BD%91%E7%BB%9C-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="blog-coderpeng">
+<meta property="og:description" content="本文主要是带领大家学习数据是如何在网络中传输的，以及计算机网络相关的知识点。阅读时长：15min。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/street-8434099_1280.jpg">
+<meta property="article:published_time" content="2024-01-21T05:15:00.000Z">
+<meta property="article:modified_time" content="2024-02-27T03:04:35.809Z">
+<meta property="article:author" content="coderpeng">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/street-8434099_1280.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pengpen1.github.io/2024/01/21/%E7%BD%91%E7%BB%9C-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机网络知识汇总',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-27 11:04:35'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png')"><nav id="nav"><span id="blog-info"><a href="/" title="blog-coderpeng"><span class="site-name">blog-coderpeng</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-filter"></i><span> 索引</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/index"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/index"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/index"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-diamond"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/recreation/gallery/index"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/recreation/music/index"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/recreation/movies/index"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/recreation/books/index"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-cube"></i><span> 3D世界</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/3Dworld/particles/index"><i class="fa-fw fas fa-paint-brush"></i><span> 照片和粒子</span></a></li><li><a class="site-page child" href="/3Dworld/monster/index"><i class="fa-fw fas fa-paw"></i><span> 吹风的狮子</span></a></li><li><a class="site-page child" href="/3Dworld/nebula/index"><i class="fa-fw fas fa-lemon"></i><span> 梦幻星云</span></a></li><li><a class="site-page child" href="/3Dworld/shuttle/index"><i class="fa-fw fas fa-money-bill"></i><span> 梦之穿梭</span></a></li><li><a class="site-page child" href="/3Dworld/chicken/index"><i class="fa-fw fas fa-signature"></i><span> 瞪眼鸡</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-wallet"></i><span> 动画合集</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/animations/load/index"><i class="fa-fw fas fa-spinner"></i><span> 加载</span></a></li><li><a class="site-page child" href="/animations/button/index"><i class="fa-fw fas fa-hand-point-up"></i><span> 按钮</span></a></li><li><a class="site-page child" href="/animations/modal/index"><i class="fa-fw fas fa-laptop"></i><span> 弹窗</span></a></li><li><a class="site-page child" href="/animations/slider/index"><i class="fa-fw fas fa-sliders"></i><span> 滑块</span></a></li><li><a class="site-page child" href="/animations/carousel/index"><i class="fa-fw fas fa-ticket"></i><span> 轮播</span></a></li><li><a class="site-page child" href="/animations/move/index"><i class="fa-fw fas fa-arrow-right"></i><span> 移动</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas  fa-cog"></i><span> 工具箱</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/toolbox/string/index"><i class="fa-fw fa fa-retweet"></i><span> 字符串处理</span></a></li><li><a class="site-page child" href="/toolbox/image/index"><i class="fa-fw fa fa-images"></i><span> 图片处理</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/other/link/index"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/other/artitalk/index"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></li><li><a class="site-page child" href="/other/about/index"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络知识汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-21T05:15:00.000Z" title="发表于 2024-01-21 13:15:00">2024-01-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-27T03:04:35.809Z" title="更新于 2024-02-27 11:04:35">2024-02-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>20分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络知识汇总"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>概要：</strong>本文主要是带领大家学习数据是如何在网络中传输的，以及计算机网络相关的知识点。另外笔者写的不是很详细，只是做个精简和归纳，感兴趣的同学可以去参考链接中深入学习。</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>计算机最初只是孤立的一个运算机器，随着业务需求的不断发展，单台孤立的计算机已经不能够满足我们的需求，因此人们把一个区域内的多台计算机连接成一个网络即局域网，然而这些小的网络并不能满足对计算机日益增长的需求，因此把不同的局域网连接成一个全球性质的网络，我们称之为互联网，互联网就是把不同的局域网通过路由器连接起来的网络。</p>
+<p><strong>1.广域网、局域网、WLAN</strong></p>
+<p>广域网（Wide Area Network），简称WAN，是一种地域范围覆盖广的计算机网络的集合，通常所覆盖的范围从几十公里到几千公里，它能连接多个地区、城市和国家。由于其超长的覆盖范围，发送介质主要是政府或者大型企业部署的电话线或光纤，因此又被大家亲切的称为：外网、公网。</p>
+<p>局域网（Local Area Network），简称LAN，相对于广域网（WAN）而言，主要是指在某一区域的计算机互联网络。“某一区域”指的是同一办公室、同一建筑物、同一公司和同一学校等，一般是方圆几千米以内。</p>
+<p>更通俗地讲，你用手机上的移动网路，浏览网页时用到就是运营商体提供的WAN，即广域网。打开手机连接路由器，再访问网页，手机使用的就是局域网。是的，路由器这种工具往往充当广域网与局域网接入的“中间媒介”。</p>
+<p>WLAN和有线局域网最大的区别就是“无线”。无线局域网WLAN的范围实际上很广，按照定义，以各种无线电波（如激光、红外线等）的无线信道来代替有线局域网中的部分或全部传输介质所构成的网络都叫WLAN。但是，由于一些技术比如WiFi、蓝牙使用的很多，以至于它们几乎代表了WLAN。实际上，WLAN是指一种网络组织架构，而WiFi是WLAN中的技术标准之一罢了。</p>
+<p>局域网内部通过MAC地址寻址，而网络间的寻址是通过IP地址进行的。在局域网内部，通信的基本单位是帧（Frame），而帧中包含了源和目的设备的MAC地址。因此，局域网内部的通信确实是通过MAC地址进行寻址的。相反，在网络间通信时，通信的基本单位是数据包（Packet），而数据包中包含了源和目的设备的IP地址。因此，网络间的通信主要依赖于IP地址进行寻址。</p>
+<p>如果通信双方在<strong>同一局域网内</strong>，可直接通过<strong>数据链路层</strong>进行相互通信，如果通信双方在<strong>不同网络内</strong>，则要通过<strong>三层地址（如IP地址）</strong>进行。</p>
+<p><strong>2.网卡、网卡驱动</strong></p>
+<p>网卡是计算机中用于连接到网络的硬件设备，负责将计算机的数据转换成网络可识别的信号并进行传输。网卡通过物理接口（如以太网端口）与计算机连接，使计算机能够与网络通信。</p>
+<p>网卡驱动是软件程序，用于让操作系统能够理解和控制网卡硬件。它充当操作系统与网卡之间的桥梁，确保它们能够正确交互。</p>
+<p>网卡是硬件设备，而网卡驱动是软件，两者紧密合作。网卡需要正确的驱动程序来与操作系统协同工作，以便在网络上发送和接收数据。</p>
+<p><strong>3.防火墙</strong></p>
+<p>防火墙是一种网络安全解决方案，可保护您的网络免受多余流量的影响。防火墙基于一组预编程的规则阻止外来的恶意软件。这些规则还可以防止网络中的用户访问某些站点和程序。</p>
+<p>几乎所有防火墙都是状态型的，并分为两种通用类型：网络防火墙和基于主机的防火墙。基于主机或计算机的防火墙只保护一台计算机或”主机”， 通常部署在家中或个人设备上，通常与操作系统成套提供。</p>
+<p>另一方面，防火墙网络可保护通过分界点的所有设备和流量，从而实现了较大的可扩展性。顾名思义，网络防火墙在网络层面发挥作用，即 OSI 第 3 和 4 层，扫描外部来源和局域网 (LAN) 之间的流量，或网络内不同网络段之间的流量。它们被放置在网络或网络段的周界作为第一道防线，并通过执行深入的数据包监测和数据包过滤来监控流量。如果数据包的内容不符合此前基于网络管理员或安全团队创建的规则选定的条件，则防火墙 会拒绝并阻止该流量。 </p>
+<h3 id="网络的分层架构"><a href="#网络的分层架构" class="headerlink" title="网络的分层架构"></a>网络的分层架构</h3><p>我们一开始接触网络的时候，看到什么应用层，数据链路层就感到头疼，就会想为什么要这么多层呢？这是为了有更好的扩展性，可维护性，从物理层到应用层，每一层都有其特定的职责。这种分层设计在网络通信中被广泛应用，以实现高效、可靠的数据传输。</p>
+<p>数据在传输的过程中，可能出现丢包，数据重复的问题，所以网络要效验数据的完整性，不可谓不复杂，所以让每一层专注于自己的职责，只管对接上一层和一层的接口就行，这样后面更换这一层的程序或者进行扩展就会更方便。这里我们来看下TCP&#x2F;IP协议簇：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>协议或代表</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>应用层</td>
+<td>DNS，HTTP，SSH，SMTP，FTP…</td>
+<td>直接面向用户，提供了丰富的网络服务和功能<br />提供数据的加密、认证和授权等安全功能<br />定义数据的格式和结构</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>TCP，UDP，SCTP(流控制传输协议)</td>
+<td>实现进程之间（端到端）的通信<br />提供流量控制和拥塞控制</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>IPv4，IPv6，ARP，ICMP</td>
+<td>负责网络寻址，屏蔽网络差异，提供透明传输<br />为网络间通信提供路由选择<br />数据包封装和解封装</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>以太网(Ethernet)，无线LAN</td>
+<td>将网络层传递下来的数据包封装成帧<br />错误检测和纠正、流量控制、帧同步</td>
+</tr>
+<tr>
+<td>物理层</td>
+<td>光纤，双绞线电缆，无线设备</td>
+<td>传输原始比特流</td>
+</tr>
+</tbody></table>
+<p><strong>1.物理层</strong></p>
+<p>位于各<strong>计算机网络体系</strong>的<strong>最低层</strong>，负责在<strong>物理传输介质</strong>之上为“数据链路层”提供一个<strong>原始比特流</strong>（也就是数据是以一个个0或1的二进制代码形式表示的）的<strong>物理连接</strong>。物理层并不是特指某种传输介质，而是指通过<strong>传输介质</strong>，以及相关的<strong>通信协议</strong>、<strong>标准</strong>建立起来的物理线路。</p>
+<p><strong>2.数据链路层</strong></p>
+<p>数据链路层是计算机网络体系结构中的第二层，位于物理层之上，网络层之下。它的主要任务是在直接相连的两个节点之间提供可靠的<strong>数据传输服务</strong>。数据链路层负责将网络层传递下来的数据包<strong>封装成帧</strong>，并通过物理层进行传输。此外，数据链路层还处理错误检测和纠正、流量控制、帧同步等功能。</p>
+<p>数据链路层的作用，则是将网络层下发的数据包，根据自己所处的网络类型，将其封装成帧数据以后发送给下一跳地址。以ip数据包传输为例，首先ip层通过目标地址，在路由表中找到数据包通往目的需要经过的下一跳ip地址，并传给数据链路层，数据链路层根据ip，通过arp协议找到该ip地址所对应机器的mac地址，最后根据自己所处的网络对应的链路层协议，将数据包封装成帧以后，发给拥有该mac地址的机器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240122161906.png"></p>
+<p><strong>环回地址：</strong>本机内不同的进程，可以通过TCP&#x2F;IP协议来进行通信，当数据包到达数据链路层时，如果判断数据包发往本机，则直接发送过去，否则通过ARP协议获取的以太网MAC地址，将数据封装成帧后，发往该MAC地址所属的机器上。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240122164648.png"></p>
+<p><strong>3.网络层</strong></p>
+<p>当源端和目的端<strong>位于不同网络</strong>（物理上分隔开的计算机网络，可以是不同的局域网（LAN）、广域网（WAN）或者全球互联网。这些网络可能由不同的组织、公司或个体管理，拥有独立的地址空间和网络规则）的时候，<strong>直接通信是不可行</strong>的，此时就需要由<strong>网络层</strong>解决（通过路由选择、拥塞控制等功能）。</p>
+<p>如果我们把物理层和数据链路层比作市内交通，那么<strong>网络层</strong>就可以比作<strong>连接不同城市交通的中转车站、机场或码头。</strong>网络层可以把<strong>来自其他网络中的数据</strong>传送到<strong>下一个途经的网络或本网络中</strong>的目的节点。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240123110707.png"></p>
+<p>网络层的数据交换技术主要是指<strong>网络中间结点</strong>所提供的<strong>数据交换功能</strong>，这些中间结点并不关心数据内容，只提供一个交换设备，把数据从一个结点转发到另一个结点，直至达到目的端。</p>
+<p>这里主要说一下报文交换和分组交换：</p>
+<ul>
+<li>报文交换就是先在中间结点上进行缓存（这类中间结点通常是由具有存储能力的交换机、路由器承担），然后再由中间结点在线路空闲时把数据发送出去。</li>
+<li>分组交换就说将报文根据各网络传输规定的<strong>MTU</strong>（最大传输单元）分成<strong>多个组，</strong>进行传输<strong>。</strong>在要转发的数据包头部加上源节点和目的节点的IP地址，成为数据报，然后通过路由技术一级级地把数据转发下去。各结点可根据数据报中所包括的地址和路由信息，选择不同的路由路径进行发送。另外，各个结点也可能随时根据网络的流量、故障等情况选择最佳路径。</li>
+</ul>
+<p>ARP和RARP协议：</p>
+<ul>
+<li>ARP协议的作用就是，在一个局域网内，当一台主机要查找某个IP所对应机器的MAC地址时，会向局域网内所有的机器广播这个请求，并捎带自己的MAC地址，当其查找的机器，收到该数据包时，会记录请求机器的ip和mac地址，并将自己的mac地址和ip返回给请求者，这就是ARP协议做的事情，本质上是通过ip去查找mac地址。</li>
+<li>RARP的作用是，将mac地址转换成ip地址</li>
+</ul>
+<p>IP协议，如IPv4，用于将多个分组交换网络（数据报交换方式）连接起来的最典型通信协议。该协议是<strong>无连接的服务</strong>，负责在源地址和目的地址之间传送数据报，然后为了适应不同网络对分组大小的要求，需要对上层传来的报文进行分割，最后调用本地网络协议将数据报传送给下一个网关或目的计算机。作用：寻址、数据报的封装、分段与重组。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240124140426.png"></p>
+<p><strong>4.传输层</strong></p>
+<p>网络层负责将数据传输到对方的主机，而机上使用什么协议来接受这个信息就由传输层来完成，所以传输层实现的是进程到进程间的连接。在TCP&#x2F;IP协议中，用”源IP地址、目的IP地址、源端口号、目的端口号、协议号”这五部分组成一个套接字，来标识一次通信，一个进程可以绑定多个端口号，因为一个进程可以有很多线程或者说是子进程等，这每一个都对应一个端口号，所以一个进程可以绑定多个端口号。</p>
+<p>注意，上面说的TCP&#x2F;IP协议实际上是指两种不同的协议：TCP（传输控制协议）和IP（网际协议）。这两种协议通常一起使用，构成了TCP&#x2F;IP协议套件，是互联网及许多局域网的核心协议。这里简单区分一下：</p>
+<ul>
+<li>TCP（传输控制协议）：负责提供可靠的、面向连接的数据传输服务，确保数据按照正确的顺序、可靠地传输到目的地。它对数据进行分段、传输和重组，提供流量控制和拥塞控制等功能。</li>
+<li>IP（网际协议）：负责在网络中寻址和路由数据包。它定义了数据包的格式，并规定了如何在网络中进行传输和路由选择。</li>
+</ul>
+<p>TCP协议的可靠性保证给IP协议提供了可靠环境，从而使得IP协议可以不必考虑传输的可靠性，专注于网络层的功能。这也是协议分层的初衷。</p>
+<p><strong>端口号分类</strong></p>
+<ul>
+<li>公认端口：0~1023，明确与某种服务绑定，比如各种协议；</li>
+<li>注册端口：1024~65535：松散的绑定一些服务，也就是有许多服务绑定这些端口。</li>
+</ul>
+<p>TCP&#x2F;UDP加上特定的端口号就可以表示应用层的某个协议；</p>
+<p><strong>常用的端口号</strong></p>
+<ul>
+<li>TCP+20&#x2F;21: ftp协议(文件传输协议)；</li>
+<li>TCP+22: ssh协议(专门为远程登录提供的安全性协议)</li>
+<li>TCP+25: SMTP协议(简单邮件传输协议)</li>
+<li>TCP&#x2F;UDP+53: DNS协议(域名解析协议)</li>
+<li>TCP+80: Http协议(超文本传输协议)</li>
+<li>TCP+443: Https协议(超文本传输安全协议)</li>
+</ul>
+<p><strong>TCP协议</strong></p>
+<p>IP协议解决了数据包的路由和传输，上层的TCP就可以不再关注路由和寻址；TCP协议解决了传输的可靠性和顺序问题，上层的应用层就可以直接使用TCP协议进行数据传输，不再需要关心数据段的丢失和重复。</p>
+<p>http是要基于TCP连接基础上的，简单的说，TCP就是单纯的建立连接（三次握手），不涉及任何我们需要请求的数据；http协议使用来收发数据，就是为实际应用而来的；</p>
+<p>TCP被认为是一种流式传输层服务。它表示TCP发送端从应用程序接收到字符流，并从这个流中提取适当的长度创建数据段，然后将其发送到网络上。TCP接收端则接收数据段，从中提取数据，若没有按序号到达还要对其进行排序，并将其作为字符流交付给接收端应用程序。这样就完成了数据的传输。</p>
+<p>TCP采用了很多手段来保证可靠传输</p>
+<ul>
+<li>1.连接管理机制：在传输数据前需要进行建立连接,也就是三次握手，在数据传送完后还需要释放连接，也就是四次挥手。(四次挥手中最后一个 ACK 是单向的确认,不需要回复)</li>
+<li>2.数据分段：TCP以报文段为单位进行发送，在建立TCP连接的时候，两端协商TCP报文段中的数据字段(也称为数据包)的最大长度(MSS);其长度加上首部长度就是整个TCP报文段的长度；(每个报文段的大小可能会因为路径MTU的限制而进行分片，不一定等于MSS)</li>
+<li>3.校验和：提供了一种简单的校验，如果收到段的校验和和原来的有差别，那接收方就会丢掉这个报文段；（并不能检测到所有的错误，例如无法检测到数据在传输过程中的重复）</li>
+<li>4.序列号：TCP给发送的数据包的编号，如果接收端收到乱序后会进行重新排序，收到重复的也会进行丢弃；</li>
+<li>5.确认应答：接收方收到报文后会回复确认(累计确认：对所有收到的按序的只确认最后)；</li>
+<li>6.重发控制：TCP发出一个报文段后，就会启动一个定时器，等接收方确认这个报文段，如果不能及时收到确认，将重发这个报文段；</li>
+<li>7.流量控制：通信的双方都有固定大小的缓冲区，TCP的接收端只允许发送端发送接收端缓冲区能接纳的数据。当接收方来不及处理发送方的数据，就把窗口缩小（窗口大小就是指无需等待确认就可以继续发送数据的最大值），并把窗口值告诉发送端（提示发送方降低发送的速率，防止包丢失）是利用滑动窗口来实现；</li>
+<li>8.拥塞控制：当网络产生拥堵时，减少数据的发送；主要是通过拥塞窗口来实现；(慢开始和拥塞避免；快重传和快恢复)；</li>
+</ul>
+<p>可以去看看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Curryxin/p/15098548.html#1%E4%BC%A0%E8%BE%93%E5%B1%82%E6%A6%82%E8%BF%B0">原文</a>真的写的详细，可以学到很多知识。</p>
+<p>为什么握手是三次而挥手是四次？因为服务器收到客户端的SYN连接建立报文后，可以直接发送SYN+ACK报文，即应答和同步，但是在关闭连接时，服务器可能还有数据要发送，所以只回复一个应答告诉客户端自己收到了，但是我这不能关，得等我发完了，我才能发送FIN连接释放报文。</p>
+<p><strong>UDP协议和TCP协议的区别</strong></p>
+<ul>
+<li>UDP首部默认是8个字节的固定长度，而TCP是20-60字节</li>
+<li>UDP在传送数据之前不需要建立连接，收到后也不需要给出确认，所以没有办法保证可靠交付。但是传输效率就要比较TCP快，UDP提供的最大努力的交付，并不一定保证传输过去后是准确无误的，它是想尽可能快的传送尽可能多的信息。</li>
+<li>UDP是面向报文的协议，应用层交给UDP多长的协议，就发送多长的报文，不合并也不拆分，保留报文的边界，一次发送一个。而TCP是面向字节流的协议，没有固定的报文或者说报文边界概念，双方都会有一个缓冲区，如果字节流太长，TCP就会拆分进行发送，如果字节流很短，那也可以等着缓冲区中的字节流变长了以后再构成一个报文段进行发送。</li>
+<li>基于UDP的应用层协议：DNS、TFTP(简单文件传输协议，端口69)；基于TCP的：HTTP、HTTPS、FTP、SSH；</li>
+<li>UDP的引用场景：音视频传输(qq和微信，加了一些算法提高可靠信)、共享屏幕等；TCP的应用场景：文件的上传和下载、浏览器上网、绝大多数应用都是TCP；</li>
+</ul>
+<p><strong>5.应用层</strong></p>
+<p>TCP&#x2F;IP 模型中应用层位于传输层之上，传输层的端口号用于标识数据所对应的应用层协议。也就是说，有端口号的协议都是应用层协议。应用协议是终端设备之间的应用通信规则。应用之间交互的信息叫消息，应用协议定义这些消息的格式以及消息的控制或操作的规则</p>
+<p><strong>应用程序</strong>有很多，包括 Web 浏览器、电子邮件、远程登录、文件传输、网络管理等。这些应用程序都会使用应用协议进行通信，应用协议正是为了实现应用程序的功能而设计和创造的。</p>
+<p><strong>远程管理</strong></p>
+<p>网络设备的管理方式，分为本地管理和远程管理。<strong>远程管理</strong>是从本地主机登录到网络对端设备，向网络对端的设备发送管理数据，以实现设备管理的操作方式。通过远程管理，不仅可以直接使用主机上的应用，还可以对主机进行参数设置。远程登录主要使用 Telnet 和 SSH 两种协议管理网络设备。</p>
+<p><strong>SSH 协议</strong>全程是安全外壳协议，目的就是为了取代 Telnet（具有安全隐患） ，SSH 是<strong>加密</strong>的远程登录协议，提供更加安全的远程登录服务。使用 SSH 后会加密通信内容。即使信息被截获，由于无法解密，也无法了解数据的真正内容。SSH 协议常用版本是 <strong>SSHv2</strong> ，SSH 客户端通过 SSHv2 协议与 SSH 服务器建立<strong>一条 TCP 的加密信道</strong>，建立这条安全信道的方式是让客户端使用服务器的 RSA 公钥来验证 SSH 服务器的身份。SSH 协议默认使用 <strong>TCP 22 端口</strong>。</p>
+<p>如果客户端成功验证了服务器的身份，它们之间就会创建出一个会话密钥，并用双方协商出来的加密算法和会话密钥，对这个信道传输的数据进行<strong>加密</strong>。这样，两台设备之间就建立了一条安全的信道，使用这条安全信道发送密码，密码以密文的形式传输，通过服务器的<strong>身份认证</strong>。SSH 就是通过这种方式建立加密信道，确保 SSH 服务器，也就是被管理设备的 Shell 免遭非法用户操作。</p>
+<p><strong>FTP</strong></p>
+<p>FTP 是网络上文件传输的标准协议，FTP 使用 TCP 作为传输协议，支持用户的登录认证和访问权限的控制。FTP 用于服务器和客户端之间传输文件，是 IP 网络上传输文件的通用协议。FTP 采用客户端和服务器的模式，使用 TCP 协议提供可靠传输。FTP 可以对登录服务器的用户名和密码进行验证，允许客户端指定文件的传输类型，并且可以设置文件的传输权限。</p>
+<p>FTP 使用两条 TCP 连接实现文件传输。一条是 FTP 控制连接，用来控制管理；另一条是 FTP 数据连接，用于数据传输。FTP 控制连接用于传输 FTP 控制命令和命令执行的应答信息，比如登录用户名和密码的验证、发送文件的名称、发送方式的设置。这条连接在整个 FTP 会话过程中一直保持打开，通过 ASCII 码字符串发送请求和接收应答。在控制连接上无法发送数据，而 FTP 数据连接用于文件和文件列表的传输，仅在需要传输数据时建立数据连接，数据传输完毕后终止。</p>
+<p><strong>HTTP</strong></p>
+<p>当用户在浏览器的地址栏里输入 Web 页的 URL 后，HTTP 的处理就开始了。<strong>HTTP</strong> 默认使用 80 端口。它的工作机制，首先是客户端向服务器的 80 端口建立一个 TCP 连接，然后在这个 TCP 连接上进行请求和应答以及数据报文的发送。</p>
+<p>HTTP 中常用的有两个版本，一个是 <strong>HTTP 1.0</strong> ，另一个是 <strong>HTTP 1.1</strong> 。在HTTP 1.0 中每一个命令和应答都会触发一次 TCP 连接的建立和断开。而从 HTTP 1.1 开始，允许在一个 TCP 连接上发送多个命令和应答，这种方式也叫<strong>保持连接</strong>（ keep-alive ）。可以大量减少 TCP 连接的建立和断开操作，提高传输效率。</p>
+<p><strong>网络管理应用</strong></p>
+<p>很多应用层协议广为人知，是因为我们在日常上网的过程中，会大量使用与这些应用协议有关的应用程序，这类应用协议称为<strong>终端用户应用协议</strong>；另外还有一些应用协议在网络中广泛使用，但我们对它们却少有听闻，最多在网络无法正常使用时，才会意识到它们的存在，这类应用层协议称为<strong>系统应用协议</strong>。</p>
+<p>在日常工作中，网络工程师经常使用到的系统应用协议有 DHCP 协议和 DNS 协议。</p>
+<h3 id="封装和分用"><a href="#封装和分用" class="headerlink" title="封装和分用"></a>封装和分用</h3><p>当应用程序采用TCP传送数据时，数据被送入协议栈中，然后，通过每一层直到被当做一串比特流传入网络中。其中每一层收到数据都会对数据增加一些首部信息（有的还需要尾部信息）。TCP传给IP的数据单元称为TCP报文段或简称为TCP段（UDP传给IP的数据单元称为UDP数据段），IP传给数据链路层的数据单元称为IP数据报。通过以太网传输的比特流称为帧。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240122103819.png"></p>
+<p>当目的主机收到了一个以太网的数据帧时，数据要从协议栈中，由底往上，每一层都检查报文首部中的协议标识，以确定接收数据的上层协议，同时去掉各层协议上的报文首部。经过协议栈的分用过程后，最终传递给应用层，供目的主机上的应用程序使用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240122111045.png"></p>
+<h3 id="疑问解答"><a href="#疑问解答" class="headerlink" title="疑问解答"></a>疑问解答</h3><p><strong>1、为什么就不能直接通过二层的帧在不同网络中进行传输呢？</strong></p>
+<p><strong>不同网络</strong>中的<strong>统一标识</strong>就是<strong>三层地址（如IP地址）</strong>，它<strong>不能识别</strong>二层的<strong>MAC地址</strong>。从上面的封装中我们可以得知，三层IP包<strong>封装成帧</strong>后，其中封装的<strong>源和目的IP地址</strong>作为<strong>帧的数据部分</strong>，不会改变。这些信息就是用来进行三层寻址的，且这些信息在帧传输过程中是不会改变的。</p>
+<p>A网络发送给B网络的帧，在转发过程中，帧的<strong>MAC地址不断变化</strong>，但是<strong>IP地址永远不变</strong>。因为要不断靠MAC地址在局域网中寻找下一个转发节点或目的节点。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1V54y1y7c4?p=1">1.从一个HTTP请求来看网络分层原理_哔哩哔哩_bilibili</a></li>
+<li><a target="_blank" rel="noopener" href="http://manistein.club/post/network/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%80%BB%E7%BB%93/">数据链路层总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/470493698">《深入理解计算机网络》</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangyx1234/article/details/113444581">一文读懂局域网、广域网、WLAN、WiFi的联系与区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://fiberroad.com.cn/what-is-ethernet">什么是以太网？以太网的工作原理和用途</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Curryxin/p/15098548.html#1%E4%BC%A0%E8%BE%93%E5%B1%82%E6%A6%82%E8%BF%B0">传输层概述</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/428372105">应用层协议详解</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://pengpen1.github.io">coderpeng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://pengpen1.github.io/2024/01/21/%E7%BD%91%E7%BB%9C-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/">https://pengpen1.github.io/2024/01/21/%E7%BD%91%E7%BB%9C-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://pengpen1.github.io" target="_blank">blog-coderpeng</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/street-8434099_1280.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/01/21/%E5%85%B6%E4%BB%96-%E5%A6%82%E4%BD%95%E8%AE%A9%E4%BD%A0%E7%9A%84%E7%BB%88%E7%AB%AF%E6%9B%B4%E5%A5%BD%E7%94%A8/" title="如何让你的终端更好用"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/mountain-8310076_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">如何让你的终端更好用</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/19/%E5%85%B6%E4%BB%96-%E8%A7%A3%E5%86%B3ssh%E8%BF%9E%E6%8E%A5github%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98/" title="解决ssh连接github失败问题"><img class="cover" src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20231207132945.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">解决ssh连接github失败问题</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">coderpeng</div><div class="author-info__description">当时年少掷春光，花马踏蹄酒溅香</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pengpen1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/pengpen1" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:coderpengfq@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">挚友，工作并非是生活的全部，思想是锁住我们的枷锁。欢迎莅临吾之微观天地，共赏知识之盛宴。以下是本人在其他社交平台的账号： <div class="social-button"> <a class="button--animated" href="https://blog.csdn.net/masierty?spm=1010.2135.3001.5343" rel="external nofollow noreferrer" target="_blank">CSDN @轻盈的风</a> <span> | </span> <a class="button--animated" href="https://juejin.cn/user/853662760436845" rel="external nofollow noreferrer" target="_blank">掘金 @轻盈的风</a> </div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%9A%84%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">网络的分层架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E5%92%8C%E5%88%86%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">封装和分用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%96%91%E9%97%AE%E8%A7%A3%E7%AD%94"><span class="toc-number">4.</span> <span class="toc-text">疑问解答</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/" title="主机维修日记"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/DRAM%E7%81%AF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="主机维修日记"/></a><div class="content"><a class="title" href="/2024/08/14/%E5%85%B6%E4%BB%96-%E4%B8%BB%E6%9C%BA%E7%BB%B4%E4%BF%AE%E6%97%A5%E8%AE%B0/" title="主机维修日记">主机维修日记</a><time datetime="2024-08-14T01:32:00.000Z" title="发表于 2024-08-14 09:32:00">2024-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/atlas-1052011_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BFC解决弹性盒子宽度响应式问题"/></a><div class="content"><a class="title" href="/2024/08/06/css-BFC%E8%A7%A3%E5%86%B3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%AE%BD%E5%BA%A6%E5%93%8D%E5%BA%94%E5%BC%8F%E9%97%AE%E9%A2%98/" title="BFC解决弹性盒子宽度响应式问题">BFC解决弹性盒子宽度响应式问题</a><time datetime="2024-08-06T03:24:00.000Z" title="发表于 2024-08-06 11:24:00">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E8%AF%B7%E6%B1%82%E4%B8%AD%E7%9A%84MIME%E7%B1%BB%E5%9E%8B/" title="请求中的MIME类型"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/drink-3025022_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="请求中的MIME类型"/></a><div class="content"><a class="title" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E8%AF%B7%E6%B1%82%E4%B8%AD%E7%9A%84MIME%E7%B1%BB%E5%9E%8B/" title="请求中的MIME类型">请求中的MIME类型</a><time datetime="2024-07-25T07:03:00.000Z" title="发表于 2024-07-25 15:03:00">2024-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E5%A4%8F%E6%B4%9B%E5%85%8B%E6%BC%94%E7%BB%8E%E6%B3%95/" title="夏洛克演绎法"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240725133846.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="夏洛克演绎法"/></a><div class="content"><a class="title" href="/2024/07/25/%E5%85%B6%E4%BB%96-%E5%A4%8F%E6%B4%9B%E5%85%8B%E6%BC%94%E7%BB%8E%E6%B3%95/" title="夏洛克演绎法">夏洛克演绎法</a><time datetime="2024-07-25T06:40:00.000Z" title="发表于 2024-07-25 14:40:00">2024-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/22/vue-%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88/" title="批量上传方案"><img src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/books-2596809_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="批量上传方案"/></a><div class="content"><a class="title" href="/2024/07/22/vue-%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E6%96%B9%E6%A1%88/" title="批量上传方案">批量上传方案</a><time datetime="2024-07-22T05:17:00.000Z" title="发表于 2024-07-22 13:17:00">2024-07-22</time></div></div></div></div></div></div></main><footer id="footer" style="background: #2b87b1"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By coderpeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'pengpen1/blog-utterances')
+    ele.setAttribute('issue-term', 'pathname')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !false) {
+    if (false) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
