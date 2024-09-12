@@ -51,6 +51,20 @@ https://cdn.jsdelivr.net/gh/用户名/仓库名
 
 ![](https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20230907204416.png)
 
+
+
+## 疑问
+
+**1.上传失败，提示检查配置项以及网络，随后提示上传失败{}，改怎么解决？**
+
+有小伙伴问我这个是怎么回事，这里统一说一下，遇到这种情况，一般都是Token过期导致的。要确定的话，只需在设置那，看一下日志：
+
+![](https://cdn.jsdelivr.net/gh/pengpen1/blog-images/20240912162303.png)
+
+401就代表无权访问，也就是Token过期了，重新去Settings > Developer settings >Personal access tokens>Tokens中创建一个访问token即可。
+
+
+
 ## 结论
 
 这样你就可以获取一个免费的加速图床啦！快去上传区上传第一张图片吧！
