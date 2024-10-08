@@ -1,16 +1,16 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>blog-coderpeng | blog-coderpeng</title><meta name="author" content="coderpeng"><meta name="copyright" content="coderpeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="button            * {         box-sizing: border-box;       }       h1.page-title {         display: none !important;       }       .carousel_body {         position: relative;">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>blog-coderpeng | blog-coderpeng</title><meta name="author" content="coderpeng"><meta name="copyright" content="coderpeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x2F;* body {   background-color: #000;       margin: 0;   overflow: hidden;   background-repeat: no-repeat; } *&#x2F;       #canvas {         width: 100%;         height: 50vh;       }">
 <meta property="og:type" content="website">
 <meta property="og:title" content="blog-coderpeng">
-<meta property="og:url" content="https://pengpen1.github.io/animations/carousel/index.html">
+<meta property="og:url" content="https://pengpen1.github.io/animations/love/index.html">
 <meta property="og:site_name" content="blog-coderpeng">
-<meta property="og:description" content="button            * {         box-sizing: border-box;       }       h1.page-title {         display: none !important;       }       .carousel_body {         position: relative;">
+<meta property="og:description" content="&#x2F;* body {   background-color: #000;       margin: 0;   overflow: hidden;   background-repeat: no-repeat; } *&#x2F;       #canvas {         width: 100%;         height: 50vh;       }">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
-<meta property="article:published_time" content="2024-05-21T09:59:00.000Z">
+<meta property="article:published_time" content="2024-10-08T05:53:00.000Z">
 <meta property="article:modified_time" content="2024-10-08T06:41:58.687Z">
 <meta property="article:author" content="coderpeng">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pengpen1.github.io/animations/carousel/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pengpen1.github.io/animations/love/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
@@ -157,194 +157,308 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>button</title>
-    <style type="text/css">
-      * {
-        box-sizing: border-box;
-      }
-      h1.page-title {
-        display: none !important;
-      }
-      .carousel_body {
-        position: relative;
-        height: 100%;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        background-image: url(http://theartmad.com/wp-content/uploads/Dark-Grey-Texture-Wallpaper-5.jpg);
-        background-size: cover;
-        background-position: top center;
-      }
-      section {
-        position: relative;
-        display: flex;
-        justify-content: center;
+    <style>
+      /* body {
+  background-color: #000;    
+  margin: 0;
+  overflow: hidden;
+  background-repeat: no-repeat;
+} */
+      #canvas {
         width: 100%;
-        height: 65vh;
-      }
-
-      .hero {
-        margin: 0 auto !important;
-        position: absolute;
-        bottom: 0;
-        /* left: 16%; */
-        transform: translateX(8vw);
-        z-index: 5;
-        max-width: 500px !important;
-        filter: contrast(90%);
-        pointer-events: none;
-      }
-
-      .swiper {
-        width: 100%;
-        height: 100%;
-      }
-
-      .swiper-slide {
-        position: relative;
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .title {
-        position: absolute;
-        top: 18%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        font-size: 5rem;
-        letter-spacing: 0.3rem;
-        z-index: 5;
-        color: transparent;
-        background-position: 50px 0;
-        animation: animated-text 20s linear infinite;
-      }
-
-      @keyframes animated-text {
-        100% {
-          background-position: 200% 0;
-        }
-      }
-
-      .one,
-      .five {
-        -webkit-text-stroke: 1px rgba(16, 104, 31, 0.8);
-        background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e9d06cb6-2844-49ed-9bde-23d3364b9fa4);
-        background-clip: text;
-        -webkit-background-clip: text;
-      }
-
-      .two,
-      .three,
-      .four,
-      .six {
-        -webkit-text-stroke: 1px #fff;
-        background: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ba4edde6-822d-437a-88c2-f54392d7a56f);
-        background-clip: text;
-        -webkit-background-clip: text;
-      }
-
-      .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
-      }
-      @media screen and (max-width: 500px) {
-        .title {
-          font-size: 3rem;
-        }
-        .hero{
-          max-width: 480px !important;
-          transform: translateX(-29vw);
-        }
+        height: 50vh;
       }
     </style>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
   </head>
-  <body class="carousel_body">
-    <section>
-      <img
-        class="hero"
-        src="https://cdn.jsdelivr.net/gh/pengpen1/blog-images/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240522094457-removebg.png"
-        alt=""
-      />
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <h1 class="title one">Edinburgh</h1>
-            <img
-              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/1bdebd02-d675-4469-be36-dc248448980d"
-              alt=""
-            />
-          </div>
+  <body>
+    <canvas id="canvas" width="100%" height="100%"></canvas>
 
-          <div class="swiper-slide">
-            <h1 class="title two">Stockholm</h1>
-            <img
-              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/62411bbf-dde9-4654-9298-1fe3e7da2d64"
-              alt=""
-            />
-          </div>
+    <script>
+      var canvas = document.getElementById("canvas");
 
-          <div class="swiper-slide">
-            <h1 class="title three">Paris</h1>
-            <img
-              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/b49c729f-65b0-4a2a-baf7-1d9f180df0a6"
-              alt=""
-            />
-          </div>
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
 
-          <div class="swiper-slide">
-            <h1 class="title four">Brugge</h1>
-            <img
-              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/c9a61071-c74d-4e8b-966a-6948cdbd9665"
-              alt=""
-            />
-          </div>
+      // Initialize the GL context
+      var gl = canvas.getContext("webgl");
+      if (!gl) {
+        console.error("Unable to initialize WebGL.");
+      }
 
-          <div class="swiper-slide">
-            <h1 class="title five">Bavaria</h1>
-            <img
-              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/25ab6cb7-9251-4aa5-9993-32ebd8542616"
-              alt=""
-            />
-          </div>
+      //Time
+      var time = 0.0;
 
-          <div class="swiper-slide">
-            <h1 class="title six">Copenhagen</h1>
-            <img
-              src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/365656bc-24bc-4d95-92da-7f34faa616cf"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+      //************** Shader sources **************
+
+      var vertexSource = `
+attribute vec2 position;
+void main() {
+  gl_Position = vec4(position, 0.0, 1.0);
+}
+`;
+
+      var fragmentSource = `
+precision highp float;
+
+uniform float width;
+uniform float height;
+vec2 resolution = vec2(width, height);
+
+uniform float time;
+
+#define POINT_COUNT 8
+
+vec2 points[POINT_COUNT];
+const float speed = -0.5;
+const float len = 0.25;
+float intensity = 1.3;
+float radius = 0.008;
+
+//https://www.shadertoy.com/view/MlKcDD
+//Signed distance to a quadratic bezier
+float sdBezier(vec2 pos, vec2 A, vec2 B, vec2 C){    
+  vec2 a = B - A;
+  vec2 b = A - 2.0*B + C;
+  vec2 c = a * 2.0;
+  vec2 d = A - pos;
+
+  float kk = 1.0 / dot(b,b);
+  float kx = kk * dot(a,b);
+  float ky = kk * (2.0*dot(a,a)+dot(d,b)) / 3.0;
+  float kz = kk * dot(d,a);      
+
+  float res = 0.0;
+
+  float p = ky - kx*kx;
+  float p3 = p*p*p;
+  float q = kx*(2.0*kx*kx - 3.0*ky) + kz;
+  float h = q*q + 4.0*p3;
+
+  if(h >= 0.0){ 
+    h = sqrt(h);
+    vec2 x = (vec2(h, -h) - q) / 2.0;
+    vec2 uv = sign(x)*pow(abs(x), vec2(1.0/3.0));
+    float t = uv.x + uv.y - kx;
+    t = clamp( t, 0.0, 1.0 );
+
+    // 1 root
+    vec2 qos = d + (c + b*t)*t;
+    res = length(qos);
+  }else{
+    float z = sqrt(-p);
+    float v = acos( q/(p*z*2.0) ) / 3.0;
+    float m = cos(v);
+    float n = sin(v)*1.732050808;
+    vec3 t = vec3(m + m, -n - m, n - m) * z - kx;
+    t = clamp( t, 0.0, 1.0 );
+
+    // 3 roots
+    vec2 qos = d + (c + b*t.x)*t.x;
+    float dis = dot(qos,qos);
+        
+    res = dis;
+
+    qos = d + (c + b*t.y)*t.y;
+    dis = dot(qos,qos);
+    res = min(res,dis);
+    
+    qos = d + (c + b*t.z)*t.z;
+    dis = dot(qos,qos);
+    res = min(res,dis);
+
+    res = sqrt( res );
+  }
+    
+  return res;
+}
+
+
+//http://mathworld.wolfram.com/HeartCurve.html
+vec2 getHeartPosition(float t){
+  return vec2(16.0 * sin(t) * sin(t) * sin(t),
+              -(13.0 * cos(t) - 5.0 * cos(2.0*t)
+              - 2.0 * cos(3.0*t) - cos(4.0*t)));
+}
+
+//https://www.shadertoy.com/view/3s3GDn
+float getGlow(float dist, float radius, float intensity){
+  return pow(radius/dist, intensity);
+}
+
+float getSegment(float t, vec2 pos, float offset, float scale){
+  for(int i = 0; i < POINT_COUNT; i++){
+    points[i] = getHeartPosition(offset + float(i)*len + fract(speed * t) * 6.28);
+  }
+    
+  vec2 c = (points[0] + points[1]) / 2.0;
+  vec2 c_prev;
+  float dist = 10000.0;
+    
+  for(int i = 0; i < POINT_COUNT-1; i++){
+    //https://tinyurl.com/y2htbwkm
+    c_prev = c;
+    c = (points[i] + points[i+1]) / 2.0;
+    dist = min(dist, sdBezier(pos, scale * c_prev, scale * points[i], scale * c));
+  }
+  return max(0.0, dist);
+}
+
+void main(){
+  vec2 uv = gl_FragCoord.xy/resolution.xy;
+  float widthHeightRatio = resolution.x/resolution.y;
+  vec2 centre = vec2(0.5, 0.5);
+  vec2 pos = centre - uv;
+  pos.y /= widthHeightRatio;
+  //Shift upwards to centre heart
+  pos.y += 0.02;
+  float scale = 0.000015 * height;
+  
+  float t = time;
+    
+  //Get first segment
+  float dist = getSegment(t, pos, 0.0, scale);
+  float glow = getGlow(dist, radius, intensity);
+  
+  vec3 col = vec3(0.0);
+
+  //White core
+  col += 10.0*vec3(smoothstep(0.003, 0.001, dist));
+  //Pink glow
+  col += glow * vec3(1.0,0.05,0.3);
+  
+  //Get second segment
+  dist = getSegment(t, pos, 3.4, scale);
+  glow = getGlow(dist, radius, intensity);
+  
+  //White core
+  col += 10.0*vec3(smoothstep(0.003, 0.001, dist));
+  //Blue glow
+  col += glow * vec3(0.1,0.4,1.0);
+        
+  //Tone mapping
+  col = 1.0 - exp(-col);
+
+  //Gamma
+  col = pow(col, vec3(0.4545));
+
+  //Output to screen
+  gl_FragColor = vec4(col,1.0);
+}
+`;
+
+      //************** Utility functions **************
+
+      window.addEventListener("resize", onWindowResize, false);
+
+      function onWindowResize() {
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.uniform1f(widthHandle, canvas.width);
+        gl.uniform1f(heightHandle, canvas.height);
+      }
+
+      //Compile shader and combine with source
+      function compileShader(shaderSource, shaderType) {
+        var shader = gl.createShader(shaderType);
+        gl.shaderSource(shader, shaderSource);
+        gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+          throw "Shader compile failed with: " + gl.getShaderInfoLog(shader);
+        }
+        return shader;
+      }
+
+      //From https://codepen.io/jlfwong/pen/GqmroZ
+      //Utility to complain loudly if we fail to find the attribute/uniform
+      function getAttribLocation(program, name) {
+        var attributeLocation = gl.getAttribLocation(program, name);
+        if (attributeLocation === -1) {
+          throw "Cannot find attribute " + name + ".";
+        }
+        return attributeLocation;
+      }
+
+      function getUniformLocation(program, name) {
+        var attributeLocation = gl.getUniformLocation(program, name);
+        if (attributeLocation === -1) {
+          throw "Cannot find uniform " + name + ".";
+        }
+        return attributeLocation;
+      }
+
+      //************** Create shaders **************
+
+      //Create vertex and fragment shaders
+      var vertexShader = compileShader(vertexSource, gl.VERTEX_SHADER);
+      var fragmentShader = compileShader(fragmentSource, gl.FRAGMENT_SHADER);
+
+      //Create shader programs
+      var program = gl.createProgram();
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+      gl.linkProgram(program);
+
+      gl.useProgram(program);
+
+      //Set up rectangle covering entire canvas
+      var vertexData = new Float32Array([
+        -1.0,
+        1.0, // top left
+        -1.0,
+        -1.0, // bottom left
+        1.0,
+        1.0, // top right
+        1.0,
+        -1.0, // bottom right
+      ]);
+
+      //Create vertex buffer
+      var vertexDataBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, vertexDataBuffer);
+      gl.bufferData(gl.ARRAY_BUFFER, vertexData, gl.STATIC_DRAW);
+
+      // Layout of our data in the vertex buffer
+      var positionHandle = getAttribLocation(program, "position");
+
+      gl.enableVertexAttribArray(positionHandle);
+      gl.vertexAttribPointer(
+        positionHandle,
+        2, // position is a vec2 (2 values per component)
+        gl.FLOAT, // each component is a float
+        false, // don't normalize values
+        2 * 4, // two 4 byte float components per vertex (32 bit float is 4 bytes)
+        0 // how many bytes inside the buffer to start from
+      );
+
+      //Set uniform handle
+      var timeHandle = getUniformLocation(program, "time");
+      var widthHandle = getUniformLocation(program, "width");
+      var heightHandle = getUniformLocation(program, "height");
+
+      gl.uniform1f(widthHandle, canvas.clientWidth);
+      gl.uniform1f(heightHandle, canvas.clientHeight);
+
+      var lastFrame = Date.now();
+      var thisFrame;
+
+      function draw() {
+        //Update time
+        thisFrame = Date.now();
+        time += (thisFrame - lastFrame) / 1000;
+        lastFrame = thisFrame;
+
+        //Send uniforms to program
+        gl.uniform1f(timeHandle, time);
+        //Draw a triangle strip connecting vertices 0-4
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    </script>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-  <script>
-    console.log("swiper", Swiper);
-    var swiper = new Swiper(".swiper", {
-      grabCursor: true,
-      speed: 500,
-      effect: "slide",
-      loop: true,
-      mousewheel: {
-        invert: false,
-        sensitivity: 1,
-      },
-    });
-
-    swiper.enable();
-  </script>
 </html>
 </div></div></main><footer id="footer" style="background: #2b87b1"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By coderpeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
 POWERMODE.shake = false;
