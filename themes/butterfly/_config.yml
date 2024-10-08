@@ -32,6 +32,7 @@ menu:
     滑块: /animations/slider/index || fas fa-sliders
     轮播: /animations/carousel/index || fas fa-ticket
     移动: /animations/move/index || fas fa-arrow-right
+    爱心: /animations/love/index || fas fa-heart
   工具箱|| fas  fa-cog:
     字符串处理: /toolbox/string/index || fa fa-retweet
     图片处理: /toolbox/image/index || fa fa-images
